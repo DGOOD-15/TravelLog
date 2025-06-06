@@ -1,3 +1,5 @@
+import "./SignUpModal.css";
+
 function SignUpModal() {
   // name
   //email
