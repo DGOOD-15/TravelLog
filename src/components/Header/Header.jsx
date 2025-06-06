@@ -1,5 +1,5 @@
 import "./Header.css";
-import logo from "../../assets/react.svg";
+import logo from "../../assets/travellogo.png";
 import avatar from "../../assets/avatarPlaceholder.jpg";
 
 function Header() {
@@ -21,10 +21,14 @@ function Header() {
               
               upon successful login, login-button dissapears and add-log-button
               and the user info will be visible and need a flexbox*/}
-          <button className="header__login-button">Login</button>
-          <button className="header__add-log-button">New log</button>
-          <p className="header__username">Josh Johnson</p>
-          <img className="header__avatar" src={avatar} />
+          <div className="header__button-container">
+            <button className="header__login-button">Login</button>
+            <button className="header__add-log-button">New log</button>
+          </div>
+          <div className="header__user-details">
+            <img className="header__avatar" src={avatar} />
+            <p className="header__username">Josh Johnson</p>
+          </div>
         </div>
       </div>
     </header>
