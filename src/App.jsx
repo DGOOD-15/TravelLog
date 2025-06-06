@@ -18,7 +18,6 @@ function App() {
       <Header />
       <LandingPage />
       <Main />
-
       <SignUpModal />
       <LoginModal />
       <AddLogModal />

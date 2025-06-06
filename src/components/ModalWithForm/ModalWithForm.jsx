@@ -20,9 +20,9 @@ function ModalWithForm({
           <button type="submit" className="modal__submit">
             {buttonText}
           </button>
-          <button type="button" className="modal__login">
+          <p type="button" className="modal__login">
             {loginText}
-          </button>
+          </p>
         </div>
       </form>
     </div>

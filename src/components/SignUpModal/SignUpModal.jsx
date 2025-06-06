@@ -5,12 +5,12 @@ function SignUpModal() {
   return (
     <ModalWithForm
       title="Create an account"
-      buttonText="Sign Up"
       name="signUp"
+      buttonText="Sign Up"
+      loginText="or Log In"
       // onClose={onClose}
       // isOpen={isOpen}
       // onSubmit={onSubmit}
-      loginText="Login"
     >
       <label className="modal__label">
         Name*
