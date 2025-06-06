@@ -1,11 +1,12 @@
 import "./SignUpModal.css";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function SignUpModal() {
-  // name
-  //email
-  //password
-  // avatar
-  // default location
+
+  return (
+    <ModalWithForm>
+    </ModalWithForm>
+  );
 }
 
 export default SignUpModal;
