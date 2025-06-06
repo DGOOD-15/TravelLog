@@ -1,5 +1,9 @@
+import Map from "../Map/Map";
+import "./Main.css";
+
 function Main() {
-  //map
+  return <Map />;
+
   // logs
 }
 
