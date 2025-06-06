@@ -1,5 +1,6 @@
 .header {
   background-color: #fff9f9;
+  font-family: "Geologica Bold";
 }
 
 .header__container {
@@ -10,32 +11,29 @@
 }
 
 .header__logo {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   margin-left: 10px;
   align-content: center;
 }
 
 .header__user-container {
   display: flex;
-  flex-direction: column;
-  margin-right: 15px;
-}
-
-.header__button-container {
-  margin-bottom: 10px;
+  align-items: center;
+  margin-right: 30px;
 }
 
 .header__login-button {
-  width: 75px;
-  height: 25px;
+  position: absolute;
+  right: 30px;
+  width: 80px;
+  height: 30px;
   border-radius: 15px;
   color: black;
   font-size: 16px;
   background-color: transparent;
   border-color: black;
   padding: 0;
-  margin-right: 10px;
 }
 
 .header__login-button:hover {
@@ -44,15 +42,16 @@
 }
 
 .header__add-log-button {
-  width: 75px;
-  height: 25px;
+  width: 80px;
+  height: 30px;
   border-radius: 15px;
   color: black;
   font-size: 16px;
   background-color: transparent;
   border-color: black;
   padding: 0;
-  margin: 0, 10px, 10px, 0;
+  margin-right: 10px;
+  visibility: hidden;
 }
 
 .header__add-log-button:hover {
@@ -60,10 +59,19 @@
   opacity: 0.7;
 }
 
+.header__user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .header__avatar {
-  width: 60px;
-  height: 60px;
+  width: 75px;
+  height: 75px;
   border-radius: 50px;
+  margin: 10px;
+  visibility: hidden;
 }
 
 .header__username {
@@ -71,4 +79,5 @@
   padding: 0px;
   font-size: 15px;
   color: black;
+  visibility: hidden;
 }
