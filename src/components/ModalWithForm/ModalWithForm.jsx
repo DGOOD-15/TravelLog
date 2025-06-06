@@ -3,7 +3,7 @@ import "./ModalWithForm.css";
 function ModalWithForm() {
 
     return (
-        <div></div>
+        <div className="modal"></div>
     );
 }
 
