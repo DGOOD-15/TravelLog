@@ -8,8 +8,8 @@ function LoginModal({ isOpen, onClose }) {
       name="logIn"
       buttonText="Log In"
       loginText="or Sign Up"
-      // onClose={onClose}
-      // isOpen={isOpen}
+      onClose={onClose}
+      isOpen={isOpen}
       // onSubmit={onSubmit}
     >
       <label className="modal__label">

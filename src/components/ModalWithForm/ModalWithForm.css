@@ -1,6 +1,6 @@
-/* .modal {
+.modal {
     visibility: hidden;
-} */
+}
 
 .modal_opened {
     visibility: visible;

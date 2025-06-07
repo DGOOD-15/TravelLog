@@ -10,8 +10,8 @@ function SignUpModal({
       name="signUp"
       buttonText="Sign Up"
       loginText="or Log In"
-      // onClose={onClose}
-      // isOpen={isOpen}
+      onClose={onClose}
+      isOpen={isOpen}
       // onSubmit={onSubmit}
     >
       <label className="modal__label">

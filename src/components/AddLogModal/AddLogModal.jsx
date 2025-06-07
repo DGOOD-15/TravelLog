@@ -7,8 +7,8 @@ function AddLogModal({ isOpen, onClose }) {
       name="addLog"
       buttonText="Add to map"
       loginText=""
-      // onClose={onClose}
-      // isOpen={isOpen}
+      onClose={onClose}
+      isOpen={isOpen}
       // onSubmit={onSubmit}
     >
       <label className="modal__label">
