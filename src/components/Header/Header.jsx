@@ -22,17 +22,6 @@ function Header() {
         </div>
 
         <div className="header__user-container">
-          {/* Putting the login button in this container 
-              - if the user is logged in we will render the add-log-button as well
-              as the user info and remove the login button
-              
-              Will add the conditional statements later. Can style as normal,
-              but will show all three items until I fix the logic. After logic
-              only Login button will show
-              
-              upon successful login, login-button dissapears and add-log-button
-              and the user info will be visible and need a flexbox*/}
-
           <div className="header__profile-buttons-signedin">
             <button className="header__profile-buttons header__profile-buttons--addlog">
               My Travel Log
