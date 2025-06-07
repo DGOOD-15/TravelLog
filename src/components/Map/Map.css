@@ -1,0 +1,26 @@
+.map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  outline: 2px dashed red;
+  width: 100%;
+}
+
+.map__polaroid-frame {
+  background-color: #f4f4f4;
+  padding: 30px 12px 150px 12px;
+  width: 680px;
+
+  box-sizing: border-box;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin: 100px 0;
+}
+
+.map__container {
+  height: 600px;
+  width: 600px;
+  margin: 0 auto;
+  background-color: pink;
+  border: 2px solid black;
+}

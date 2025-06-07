@@ -1,0 +1,53 @@
+.footer {
+  background-color: #fff9f9;
+  font-family: "Geologica Bold";
+  width: 100%;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+}
+
+.footer__text-copyright {
+  font-size: 10px;
+  margin-left: 20px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.footer__text-authors {
+  font-size: 10px;
+  margin-left: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.footer__logo {
+  height: 75px;
+  width: 75px;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 470px) {
+  .footer {
+    height: 150px;
+  }
+  .footer__container {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+  }
+
+  .footer__text-copyright {
+    margin-left: 0px;
+  }
+
+  .footer__text-authors {
+    margin-left: 0px;
+  }
+}
