@@ -1,7 +1,7 @@
 import "./LogsSection.css";
 import LogCard from "../LogCard/LogCard";
 import { defaultTravelLogs } from "../../utils/constants";
-
+//georgia
 function LogsSection() {
   return (
     <div className="logs">
