@@ -2,8 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
-  outline: 2px dashed red;
   width: 100%;
 }
 

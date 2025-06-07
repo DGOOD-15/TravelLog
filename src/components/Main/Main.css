@@ -5,7 +5,9 @@
   width: 100%;
   min-height: 1000px;
   margin: 0 auto;
-  padding-bottom: 100px;
+  background-image: url(../../assets/main-background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .main__map {
