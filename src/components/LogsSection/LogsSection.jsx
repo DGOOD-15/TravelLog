@@ -15,7 +15,7 @@ function LogsSection() {
             <LogCard
               imageUrl={item.link}
               imageId={item._id}
-              description={item.description}
+              location={item.location}
             //   onCardClick={onCardClick}
             />
           );

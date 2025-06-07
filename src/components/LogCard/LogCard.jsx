@@ -4,7 +4,7 @@ import placeholderImage from "../../assets/globewatercolor.jpg";
 function LogCard({
   imageUrl,
   imageId,
-  description,
+  location,
   // onCardClick
 }) {
   return (
@@ -13,7 +13,7 @@ function LogCard({
         id={imageId}
         src={imageUrl}
         className="log__image"
-        alt={description}
+        alt={location}
       />
     </div>
   );
