@@ -1,6 +1,6 @@
 import "./LogCard.css";
 import placeholderImage from "../../assets/globewatercolor.jpg";
-// georgia
+
 function LogCard() {
   return (
     <div className="log__container">
