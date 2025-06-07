@@ -7,7 +7,7 @@ function LogModal({
 }) {
 
   useModalClose(isOpen, onClose);
-
+// Georgia branch
   return (
     <div className={`log ${isOpen ? "log_opened" : ""}`}>
       <p className="log__text">Travel log</p>
