@@ -1,6 +1,6 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./AddLogModal.css";
-function AddLogModal() {
+function AddLogModal({ isOpen, onClose }) {
   return (
     <ModalWithForm
       title="Add a memory"

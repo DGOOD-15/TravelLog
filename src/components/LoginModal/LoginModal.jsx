@@ -1,7 +1,7 @@
 import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function LoginModal() {
+function LoginModal({ isOpen, onClose }) {
   return (
     <ModalWithForm
       title="Log In"

@@ -10,14 +10,32 @@ import AddLogModal from "./components/AddLogModal/AddLogModal";
 import Footer from "./components/Footer/Footer";
 
 function App() {
+  const [activeModal, setActiveModal] = useState("");
+
+  const onSignUpClick = () => {
+    setActiveModal("signUp");
+  };
+
+  const onLoginClick = () => {
+    setActiveModal("login");
+  };
+
+  const onAddLogClick = () => {
+    setActiveModal("addLog");
+  };
+
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
+
   return (
     <>
       <Header />
       <LandingPage />
       <Main />
-      <SignUpModal />
-      <LoginModal />
-      <AddLogModal />
+      <SignUpModal isOpen={activeModal === ""} onClose={closeActiveModal} />
+      <LoginModal isOpen={activeModal === ""} onClose={closeActiveModal} />
+      <AddLogModal isOpen={activeModal === ""} onClose={closeActiveModal} />
       <Footer />
     </>
   );
