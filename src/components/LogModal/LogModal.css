@@ -1,0 +1,12 @@
+/* .log {
+    visibility: hidden;
+} */
+
+.log_opened {
+    visibility: visible;
+}
+
+.log__text {
+    font-size: 40px;
+    color: red;
+}
