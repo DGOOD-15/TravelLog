@@ -1,6 +1,6 @@
 .header {
   background-color: #fff9f9;
-  font-family: "Geologica Bold";
+  font-family: "Geologica Bold", Arial, Helvetica, sans-serif;
 }
 
 .header__container {
@@ -34,14 +34,15 @@
 
 .header__login-button {
   position: absolute;
-  right: 30px;
+  right: 60px;
+  top: 60px;
   width: 80px;
   height: 30px;
   border-radius: 15px;
-  color: black;
+  color: #fff;
   font-size: 16px;
-  background-color: transparent;
-  border-color: black;
+  background-color: #4a7c8c;
+  border: none;
   padding: 0;
   visibility: hidden;
 }
@@ -52,13 +53,13 @@
 }
 
 .header__add-log-button {
-  width: 70px;
-  height: 20px;
+  width: 80px;
+  height: 25px;
   border-radius: 15px;
-  color: black;
-  font-size: 12px;
-  background-color: transparent;
-  border-color: black;
+  font-size: 14px;
+  color: #fff;
+  background-color: #4a7c8c;
+  border: none;
   padding: 0;
 }
 
