@@ -1,25 +1,23 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./AddLogModal.css";
 function AddLogModal() {
-  //add photo
-  // description
-  // add button
-  // cancel/close button
-  // location
-return (
-  <ModalWithForm
-    title="Add a memory"
-    name="addLog"
-    buttonText="Add to map"
-    loginText=""
-  >
-    <label className="modal__label">
+  return (
+    <ModalWithForm
+      title="Add a memory"
+      name="addLog"
+      buttonText="Add to map"
+      loginText=""
+      // onClose={onClose}
+      // isOpen={isOpen}
+      // onSubmit={onSubmit}
+    >
+      <label className="modal__label">
         Description*
         <input
-          type=""
-          id=""
-          name=""
-          placeholder=""
+          type="text"
+          id="description"
+          name="description"
+          placeholder="About this day..."
           className="modal__input"
           minLength="2"
           maxLength="50"
@@ -29,30 +27,30 @@ return (
       <label className="modal__label">
         Photo URL
         <input
-          type=""
-          id=""
-          name=""
-          placeholder=""
+          type="url"
+          id="photoUrl"
+          name="photoUrl"
+          placeholder="Image link"
           className="modal__input"
           minLength="2"
           maxLength="50"
         />
       </label>
       <label className="modal__label">
-        Location
+        Location*
         <input
-          type=""
-          id=""
-          name=""
-          placeholder=""
+          type="text"
+          id="location"
+          name="location"
+          placeholder="Location"
           className="modal__input"
           minLength="2"
           maxLength="50"
           required
         />
       </label>
-  </ModalWithForm>
-);
+    </ModalWithForm>
+  );
 }
 
 export default AddLogModal;

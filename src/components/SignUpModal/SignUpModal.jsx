@@ -15,10 +15,10 @@ function SignUpModal() {
       <label className="modal__label">
         Name*
         <input
-          type=""
-          id=""
-          name=""
-          placeholder=""
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Name"
           className="modal__input"
           minLength="2"
           maxLength="50"
@@ -28,10 +28,10 @@ function SignUpModal() {
       <label className="modal__label">
         Email*
         <input
-          type=""
-          id=""
-          name=""
-          placeholder=""
+          type="email"
+          id="signUpEmail"
+          name="signUpEmail"
+          placeholder="Email address"
           className="modal__input"
           minLength="2"
           maxLength="50"
@@ -41,10 +41,10 @@ function SignUpModal() {
       <label className="modal__label">
         Password*
         <input
-          type=""
-          id=""
-          name=""
-          placeholder=""
+          type="password"
+          id="signUpPassword"
+          name="signUpPassword"
+          placeholder="Password"
           className="modal__input"
           minLength="2"
           maxLength="50"
@@ -54,14 +54,13 @@ function SignUpModal() {
       <label className="modal__label">
         Profile Picture
         <input
-          type=""
-          id=""
-          name=""
-          placeholder=""
+          type="url"
+          id="profilePic"
+          name="profilePic"
+          placeholder="Image link"
           className="modal__input"
           minLength="2"
           maxLength="50"
-          required
         />
       </label>
     </ModalWithForm>

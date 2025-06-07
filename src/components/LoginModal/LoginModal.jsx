@@ -2,24 +2,23 @@ import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function LoginModal() {
-  //email
-  //password
-  // sign in button
-  // close button
   return (
     <ModalWithForm
       title="Log In"
       name="logIn"
       buttonText="Log In"
       loginText="or Sign Up"
+      // onClose={onClose}
+      // isOpen={isOpen}
+      // onSubmit={onSubmit}
     >
       <label className="modal__label">
         Email*
         <input
-          type=""
-          id=""
-          name=""
-          placeholder=""
+          type="email"
+          id="loginEmail"
+          name="loginEmail"
+          placeholder="Email address"
           className="modal__input"
           minLength="2"
           maxLength="50"
@@ -29,10 +28,10 @@ function LoginModal() {
       <label className="modal__label">
         Password*
         <input
-          type=""
-          id=""
-          name=""
-          placeholder=""
+          type="password"
+          id="loginPassword"
+          name="loginPassword"
+          placeholder="Password"
           className="modal__input"
           minLength="2"
           maxLength="50"
