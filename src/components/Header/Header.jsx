@@ -1,16 +1,16 @@
+import { Link } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/travellogo.png";
 import globe from "../../assets/globewatercolor.jpg";
 import avatar from "../../assets/avatarPlaceholder.jpg";
 
 function Header() {
-  // logo on the left
-  // login button
-  //add new log
   return (
     <header className="header">
       <div className="header__container">
-        <img className="header__logo" src={logo} alt="Memory Map Logo" />
+        <Link to="/" className="header__link">
+          <img className="header__logo" src={logo} alt="Memory Map Logo" />
+        </Link>
         <img className="header__image" src={globe} alt="Globe Water Color" />
         <div className="header__profile-buttons-signedout">
           <button className="header__profile-buttons header__profile-buttons--login">
@@ -42,8 +42,10 @@ function Header() {
             </button>
           </div>
           <div className="header__user-details">
-            <img className="header__avatar" src={avatar} />
-            <p className="header__username">Josh Johnson</p>
+            <Link to="/profile" className="header__link">
+              <img className="header__avatar" src={avatar} />
+              <p className="header__username">Josh Johnson</p>
+            </Link>
           </div>
         </div>
       </div>
