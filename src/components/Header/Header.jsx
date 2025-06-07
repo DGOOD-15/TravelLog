@@ -12,7 +12,15 @@ function Header() {
       <div className="header__container">
         <img className="header__logo" src={logo} alt="Memory Map Logo" />
         <img className="header__image" src={globe} alt="Globe Water Color" />
-        <button className="header__login-button">Login</button>
+        <div className="header__profile-buttons-signedout">
+          <button className="header__profile-buttons header__profile-buttons--login">
+            Login
+          </button>
+          <button className="header__profile-buttons header__profile-buttons--signup">
+            Sign Up
+          </button>
+        </div>
+
         <div className="header__user-container">
           {/* Putting the login button in this container 
               - if the user is logged in we will render the add-log-button as well
@@ -25,7 +33,14 @@ function Header() {
               upon successful login, login-button dissapears and add-log-button
               and the user info will be visible and need a flexbox*/}
 
-          <button className="header__add-log-button">New log</button>
+          <div className="header__profile-buttons-signedin">
+            <button className="header__profile-buttons header__profile-buttons--addlog">
+              My Travel Log
+            </button>
+            <button className="header__profile-buttons header__profile-buttons--signout">
+              Sign Out
+            </button>
+          </div>
           <div className="header__user-details">
             <img className="header__avatar" src={avatar} />
             <p className="header__username">Josh Johnson</p>
