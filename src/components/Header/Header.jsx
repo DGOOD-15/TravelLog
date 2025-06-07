@@ -1,5 +1,6 @@
 import "./Header.css";
 import logo from "../../assets/travellogo.png";
+import globe from "../../assets/globewatercolor.jpg";
 import avatar from "../../assets/avatarPlaceholder.jpg";
 
 function Header() {
@@ -10,6 +11,7 @@ function Header() {
     <header className="header">
       <div className="header__container">
         <img className="header__logo" src={logo} alt="Memory Map Logo" />
+        <img className="header__image" src={globe} alt="Globe Water Color" />
         <button className="header__login-button">Login</button>
         <div className="header__user-container">
           {/* Putting the login button in this container 
