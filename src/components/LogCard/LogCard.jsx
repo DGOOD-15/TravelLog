@@ -5,7 +5,7 @@ function LogCard({
   imageUrl,
   imageId,
   location,
-  // onCardClick
+  onCardClick
 }) {
   return (
     <div className="log__container">
@@ -14,6 +14,7 @@ function LogCard({
         src={imageUrl}
         className="log__image"
         alt={location}
+        onClick={onCardClick}
       />
     </div>
   );

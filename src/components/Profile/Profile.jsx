@@ -4,14 +4,17 @@ import Sidebar from "../Sidebar/Sidebar";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
 function Profile({
-  onAddLogClick
+  onAddLogClick,
+  onLogClick
 }) {
   return (
     <div className="profile">
       <Sidebar 
         onAddLogClick={onAddLogClick}
       />
-      <LogsSection />
+      <LogsSection
+        onCardClick={onLogClick}
+      />
       <EditProfileModal />
     </div>
   );

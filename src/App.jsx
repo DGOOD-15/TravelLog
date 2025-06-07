@@ -48,7 +48,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route
           path="/profile"
-          element={<Profile onAddLogClick={onAddLogClick} />}
+          element={<Profile onAddLogClick={onAddLogClick} onLogClick={onLogClick} />}
         />
       </Routes>
       {/* Following buttons for testing functionality only

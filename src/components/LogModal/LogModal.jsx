@@ -3,7 +3,7 @@ import useModalClose from "../../hooks/useModalClose";
 import closeButton from "../../assets/closeButton.png";
 import placeholderImage from "../../assets/globewatercolor.jpg";
 
-function LogModal({ isOpen, onClose, title }) {
+function LogModal({ isOpen, onClose, title, imageUrl, imageId, location, description }) {
   useModalClose(isOpen, onClose);
 
   return (
