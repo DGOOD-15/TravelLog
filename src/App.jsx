@@ -39,22 +39,17 @@ function App() {
 
   return (
     <div className="page">
-      <Header />
+      <Header
+        onSignUpClick={onSignUpClick}
+        onLoginClick={onLoginClick}
+        onAddLogClick={onAddLogClick}
+      />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
       {/* Following buttons for testing functionality only
           Please remove when no longer needed */}
-      <button className="test__button" onClick={onSignUpClick}>
-        Sign Up
-      </button>
-      <button className="test__button" onClick={onLoginClick}>
-        Login
-      </button>
-      <button className="test__button" onClick={onAddLogClick}>
-        Add log
-      </button>
       <button className="test__button" onClick={onLogClick}>
         My travel log
       </button>
