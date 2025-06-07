@@ -12,9 +12,24 @@ function Header() {
           <img className="header__logo" src={logo} alt="Memory Map Logo" />
         </Link>
         <img className="header__image" src={globe} alt="Globe Water Color" />
-        <button className="header__login-button">Login</button>
+        <div className="header__profile-buttons-signedout">
+          <button className="header__profile-buttons header__profile-buttons--login">
+            Login
+          </button>
+          <button className="header__profile-buttons header__profile-buttons--signup">
+            Sign Up
+          </button>
+        </div>
+
         <div className="header__user-container">
-          <button className="header__add-log-button">New log</button>
+          <div className="header__profile-buttons-signedin">
+            <button className="header__profile-buttons header__profile-buttons--addlog">
+              My Travel Log
+            </button>
+            <button className="header__profile-buttons header__profile-buttons--signout">
+              Sign Out
+            </button>
+          </div>
           <div className="header__user-details">
             <Link to="/profile" className="header__link">
               <img className="header__avatar" src={avatar} />
