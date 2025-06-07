@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
+import Profile from "./components/Profile/Profile";
 import LogModal from "./components/LogModal/LogModal";
 import SignUpModal from "./components/SignUpModal/SignUpModal";
 import LoginModal from "./components/LoginModal/LoginModal";
@@ -38,6 +39,7 @@ function App() {
     <div className="page">
       <Header />
       <Main />
+      <Profile />
       {/* Following buttons for testing functionality only
           Please remove when no longer needed */}
       <button className="test__button" onClick={onSignUpClick}>Sign Up</button>
