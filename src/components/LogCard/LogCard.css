@@ -1,0 +1,12 @@
+.log {
+
+}
+
+.log__container {
+
+}
+
+.log__info-container {
+    display: flex;
+    justify-content: space-between;
+}
