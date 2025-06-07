@@ -2,9 +2,8 @@ import { useState } from "react";
 
 import "./App.css";
 import Header from "./components/Header/Header";
-import LandingPage from "./components/LandingPage/LandingPage";
 import Main from "./components/Main/Main";
-import LogModal from "./components/LoginModal/LoginModal";
+import LogModal from "./components/LogModal/LogModal";
 import SignUpModal from "./components/SignUpModal/SignUpModal";
 import LoginModal from "./components/LoginModal/LoginModal";
 import AddLogModal from "./components/AddLogModal/AddLogModal";
@@ -12,6 +11,7 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedLog, setSelectedLog] = useState({});
 
   const onSignUpClick = () => {
@@ -37,7 +37,6 @@ function App() {
   return (
     <div className="page">
       <Header />
-      <LandingPage />
       <Main />
       {/* Following buttons for testing functionality only
           Please remove when no longer needed */}
@@ -58,6 +57,7 @@ function App() {
       <LogModal 
         isOpen={activeModal === "travelLog"}
         onClose={closeActiveModal}
+        title="Travel log"
       />
       <Footer />
     </div>

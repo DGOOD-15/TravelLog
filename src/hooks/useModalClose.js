@@ -14,6 +14,8 @@ function useModalClose(isOpen, onClose) {
     const handleOverlay = (e) => {
       if (e.target.classList.contains("modal")) {
         onClose();
+      } else if (e.target.classList.contains("log")) {
+        onClose();
       }
     };
 
