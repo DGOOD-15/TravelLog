@@ -1,6 +1,9 @@
-/* .log {
-    visibility: hidden;
-} */
+.log {
+    /* visibility: hidden; */
+    height: 400px;
+    width: 400px;
+    background-color: bisque;
+}
 
 .log_opened {
     visibility: visible;

@@ -9,8 +9,8 @@ function Footer() {
     <footer className="footer">
       <div className="footer__container">
         <div className="footer__text">
-          <p class="footer__text-copyright">2025 &copy; MemoryMap</p>
-          <p class="footer__text-authors">
+          <p className="footer__text-copyright">2025 &copy; MemoryMap</p>
+          <p className="footer__text-authors">
             Created by: Dustin Goodwin, Georgia Lloyd, Jaimie Bowen, Sky Mandić
           </p>
         </div>

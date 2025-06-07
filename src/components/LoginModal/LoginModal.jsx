@@ -16,7 +16,7 @@ function LoginModal({ isOpen, onClose }) {
         Email*
         <input
           type="email"
-          id="loginEmail"
+          id="logInEmail"
           name="loginEmail"
           placeholder="Email address"
           className="modal__input"
@@ -29,7 +29,7 @@ function LoginModal({ isOpen, onClose }) {
         Password*
         <input
           type="password"
-          id="loginPassword"
+          id="logInPassword"
           name="loginPassword"
           placeholder="Password"
           className="modal__input"

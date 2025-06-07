@@ -1,5 +1,5 @@
 import { useState } from "react";
-// georgia
+
 import "./App.css";
 import Header from "./components/Header/Header";
 import LandingPage from "./components/LandingPage/LandingPage";
@@ -27,7 +27,7 @@ function App() {
   };
 
   const onLogClick = () => {
-    setActiveModal("log");
+    setActiveModal("travelLog");
   };
 
   const closeActiveModal = () => {
@@ -44,7 +44,7 @@ function App() {
       <button className="test__button" onClick={onSignUpClick}>Sign Up</button>
       <button className="test__button" onClick={onLoginClick}>Login</button>
       <button className="test__button" onClick={onAddLogClick}>Add log</button>
-      <button className="test__button" onCliCk={onLogClick}>My travel log</button>
+      <button className="test__button" onClick={onLogClick}>My travel log</button>
       {/* End test buttons - to be removed */}
       <SignUpModal
         isOpen={activeModal === "signUp"}
@@ -53,6 +53,10 @@ function App() {
       <LoginModal isOpen={activeModal === "logIn"} onClose={closeActiveModal} />
       <AddLogModal
         isOpen={activeModal === "addLog"}
+        onClose={closeActiveModal}
+      />
+      <LogModal 
+        isOpen={activeModal === "travelLog"}
         onClose={closeActiveModal}
       />
       <Footer />
