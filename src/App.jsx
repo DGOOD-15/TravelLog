@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -38,14 +39,24 @@ function App() {
   return (
     <div className="page">
       <Header />
-      <Main />
-      <Profile />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
       {/* Following buttons for testing functionality only
           Please remove when no longer needed */}
-      <button className="test__button" onClick={onSignUpClick}>Sign Up</button>
-      <button className="test__button" onClick={onLoginClick}>Login</button>
-      <button className="test__button" onClick={onAddLogClick}>Add log</button>
-      <button className="test__button" onClick={onLogClick}>My travel log</button>
+      <button className="test__button" onClick={onSignUpClick}>
+        Sign Up
+      </button>
+      <button className="test__button" onClick={onLoginClick}>
+        Login
+      </button>
+      <button className="test__button" onClick={onAddLogClick}>
+        Add log
+      </button>
+      <button className="test__button" onClick={onLogClick}>
+        My travel log
+      </button>
       {/* End test buttons - to be removed */}
       <SignUpModal
         isOpen={activeModal === "signUp"}
@@ -56,7 +67,7 @@ function App() {
         isOpen={activeModal === "addLog"}
         onClose={closeActiveModal}
       />
-      <LogModal 
+      <LogModal
         isOpen={activeModal === "travelLog"}
         onClose={closeActiveModal}
         title="Travel log"
