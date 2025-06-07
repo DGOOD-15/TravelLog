@@ -4,7 +4,6 @@ import "./LogModal.css";
 function LogModal({
   isOpen,
   onClose,
-  children
 }) {
 
   useModalClose(isOpen, onClose);
@@ -12,7 +11,6 @@ function LogModal({
   return (
     <div className={`log ${isOpen ? "log_opened" : ""}`}>
       <p className="log__text">Travel log</p>
-      {children}
     </div>
   );
 }
