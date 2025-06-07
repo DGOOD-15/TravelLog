@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-
+//georgia
 import "./App.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
