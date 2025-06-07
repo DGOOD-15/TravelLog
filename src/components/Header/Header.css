@@ -17,8 +17,17 @@
   align-content: center;
 }
 
+.header__image {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 70%;
+}
+
 .header__user-container {
   display: flex;
+  flex-direction: column-reverse;
   align-items: center;
   margin-right: 30px;
 }
@@ -34,6 +43,7 @@
   background-color: transparent;
   border-color: black;
   padding: 0;
+  visibility: hidden;
 }
 
 .header__login-button:hover {
@@ -42,16 +52,14 @@
 }
 
 .header__add-log-button {
-  width: 80px;
-  height: 30px;
+  width: 70px;
+  height: 20px;
   border-radius: 15px;
   color: black;
-  font-size: 16px;
+  font-size: 12px;
   background-color: transparent;
   border-color: black;
   padding: 0;
-  margin-right: 10px;
-  visibility: hidden;
 }
 
 .header__add-log-button:hover {
@@ -67,11 +75,12 @@
 }
 
 .header__avatar {
-  width: 75px;
-  height: 75px;
+  width: 65px;
+  height: 65px;
   border-radius: 50px;
   margin: 10px;
-  visibility: hidden;
+  object-fit: cover;
+  object-position: 50% 10%;
 }
 
 .header__username {
@@ -79,5 +88,34 @@
   padding: 0px;
   font-size: 15px;
   color: black;
-  visibility: hidden;
+}
+
+@media screen and (max-width: 470px) {
+  .header__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 70%;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .header__image {
+    width: 100px;
+    height: 100px;
+  }
+  .header__login-button {
+    right: 20px;
+  }
+
+  .header__logo {
+    margin-left: 0px;
+    width: 125px;
+    height: 125px;
+  }
+
+  .header__user-container {
+    margin-right: 10px;
+  }
 }
