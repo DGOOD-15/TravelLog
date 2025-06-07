@@ -35,16 +35,16 @@ function App() {
   };
 
   return (
-    <>
+    <div className="page">
       <Header />
       <LandingPage />
       <Main />
       {/* Following buttons for testing functionality only
           Please remove when no longer needed */}
-      <button onClick={onSignUpClick}>Sign Up</button>
-      <button onClick={onLoginClick}>Login</button>
-      <button onClick={onAddLogClick}>Add log</button>
-      <button onCliCk={onLogClick}>My travel log</button>
+      <button className="test__button" onClick={onSignUpClick}>Sign Up</button>
+      <button className="test__button" onClick={onLoginClick}>Login</button>
+      <button className="test__button" onClick={onAddLogClick}>Add log</button>
+      <button className="test__button" onCliCk={onLogClick}>My travel log</button>
       {/* End test buttons - to be removed */}
       <SignUpModal
         isOpen={activeModal === "signUp"}
@@ -56,7 +56,7 @@ function App() {
         onClose={closeActiveModal}
       />
       <Footer />
-    </>
+    </div>
   );
 }
 
