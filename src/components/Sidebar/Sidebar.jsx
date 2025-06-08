@@ -1,12 +1,11 @@
 import "./Sidebar.css";
 
 function Sidebar({
-    onAddLogClick
+    onEditProfileClick
 }) {
     return (
         <div className="sidebar">
-            <p onClick={onAddLogClick} className="sidebar__link">Add travel log</p>
-            <p>Edit profile</p>
+            <p className="sidebar__link" onClick={onEditProfileClick}>Edit profile</p>
             <p>Log out</p>
         </div>
     );

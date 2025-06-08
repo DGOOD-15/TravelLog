@@ -29,6 +29,7 @@ function LogModal({ isOpen, onClose, title, item }) {
 
 export default LogModal;
 
+
 // photo
 // description
 // location
