@@ -1,6 +1,6 @@
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 import "./Map.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddLogModal from "../AddLogModal/AddLogModal";
 
 function Map() {
@@ -11,6 +11,19 @@ function Map() {
   const [pins, setPins] = useState([]);
   const [isAddingMemory, setIsAddingMemory] = useState(false);
   const [isAddLogModalOpen, setAddLogModalOpen] = useState(false);
+  const [selectedPin, setSelectedPin] = useState(null);
+  const [hoveredPin, setHoveredPin] = useState(null);
+
+  useEffect(() => {
+    const storedPins = localStorage.getItem("pins");
+    if (storedPins) {
+      setPins(JSON.parse(storedPins));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("pins", JSON.stringify(pins));
+  }, [pins]);
 
   if (loadError) return <div>Error loading maps</div>;
   if (!isLoaded) return <div>Loading Maps...</div>;
@@ -57,7 +70,13 @@ function Map() {
             onClick={handleMapClick}
           >
             {pins.map((pin, index) => (
-              <Marker key={index} position={{ lat: pin.lat, lng: pin.lng }} />
+              <Marker
+                key={index}
+                position={{ lat: pin.lat, lng: pin.lng }}
+                onClick={() => setSelectedPin(pin)}
+                onMouseOver={() => setHoveredPin(pin)}
+                onMouseOut={() => setHoveredPin(null)}
+              />
             ))}
           </GoogleMap>
         </div>
