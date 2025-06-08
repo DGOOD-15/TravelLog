@@ -11,9 +11,10 @@ function LogsSection({
         .map((item) => {
           return (
             <LogCard
-              imageUrl={item.link}
-              imageId={item._id}
-              location={item.location}
+                item={item}
+            //   imageUrl={item.link}
+            //   imageId={item._id}
+            //   location={item.location}
               onCardClick={onCardClick}
             />
           );

@@ -29,8 +29,9 @@ function App() {
     setActiveModal("addLog");
   };
 
-  const onLogClick = () => {
+  const onLogClick = (item) => {
     setActiveModal("travelLog");
+    setSelectedLog(item);
   };
 
   const closeActiveModal = () => {
@@ -70,6 +71,7 @@ function App() {
         isOpen={activeModal === "travelLog"}
         onClose={closeActiveModal}
         title="Travel log"
+        item={selectedLog}
       />
       <Footer />
     </div>
