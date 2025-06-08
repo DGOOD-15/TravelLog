@@ -44,6 +44,33 @@ function App() {
     setActiveModal("");
   };
 
+  const handleRegistrationSubmit = async ({ email, password, name }) => {
+    try {
+      console.log("Starting registration with:", { email, name });
+      const userData = { name, email, password };
+      console.log("About to store userData:", userData);
+      localStorage.setItem("userData", JSON.stringify(userData));
+      console.log(
+        "Checking localStorage after setting:",
+        localStorage.getItem("userData")
+      );
+
+      const data = await authorize(email, password);
+      console.log("Authorize response:", data);
+      if (data.token) {
+        localStorage.setItem("jwt", data.token);
+        const userData = await checkToken(data.token);
+        console.log("CheckToken response:", userData);
+        if (userData.data) {
+          closeActiveModal();
+          // setActiveModal("success");
+        }
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+    }
+  };
+
   const handleLoginSubmit = async ({ email, password }) => {
     try {
       const data = await authorize(email, password);
@@ -112,6 +139,7 @@ function App() {
       <SignUpModal
         isOpen={activeModal === "signUp"}
         onClose={closeActiveModal}
+        handleRegistrationSubmit={handleRegistrationSubmit}
       />
       <LoginModal
         isOpen={activeModal === "logIn"}
