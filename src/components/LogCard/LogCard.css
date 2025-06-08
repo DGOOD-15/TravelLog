@@ -1,12 +1,13 @@
 .log {
-
 }
 
 .log__container {
+}
 
+.log__image {
 }
 
 .log__info-container {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
