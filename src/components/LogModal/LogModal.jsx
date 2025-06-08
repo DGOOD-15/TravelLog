@@ -1,8 +1,9 @@
 import "./LogModal.css";
 import useModalClose from "../../hooks/useModalClose";
 import closeButton from "../../assets/closeButton.png";
+import placeholderImage from "../../assets/globewatercolor.jpg";
 
-function LogModal({ isOpen, onClose, title }) {
+function LogModal({ isOpen, onClose, title, item }) {
   useModalClose(isOpen, onClose);
 
   return (
@@ -15,7 +16,12 @@ function LogModal({ isOpen, onClose, title }) {
           className="log__close"
           src={closeButton}
         />
-        <p className="log__text">Placeholder</p>
+        <img src={item.link} className="log__image" alt={item.location} />
+        <div className="log__info-container">
+          <p className="log__date">Date placeholder</p>
+          <p className="log__location">{item.location}</p>
+        </div>
+        <p className="log__description">{item.description}</p>
       </div>
     </div>
   );

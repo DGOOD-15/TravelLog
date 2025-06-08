@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Profile from "./components/Profile/Profile";
+import LogCard from "./components/LogCard/LogCard";
 import LogModal from "./components/LogModal/LogModal";
 import SignUpModal from "./components/SignUpModal/SignUpModal";
 import LoginModal from "./components/LoginModal/LoginModal";
@@ -28,8 +29,9 @@ function App() {
     setActiveModal("addLog");
   };
 
-  const onLogClick = () => {
+  const onLogClick = (item) => {
     setActiveModal("travelLog");
+    setSelectedLog(item);
   };
 
   const closeActiveModal = () => {
@@ -38,27 +40,21 @@ function App() {
 
   return (
     <div className="page">
-      <Header />
+      <Header
+        onSignUpClick={onSignUpClick}
+        onLoginClick={onLoginClick}
+        onAddLogClick={onAddLogClick}
+      />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route
           path="/profile"
-          element={
-            <Profile onAddLogClick={onAddLogClick} onLogClick={onLogClick} />
-          }
+          element={<Profile onAddLogClick={onAddLogClick} onLogClick={onLogClick} />}
+main
         />
       </Routes>
       {/* Following buttons for testing functionality only
           Please remove when no longer needed */}
-      <button className="test__button" onClick={onSignUpClick}>
-        Sign Up
-      </button>
-      <button className="test__button" onClick={onLoginClick}>
-        Login
-      </button>
-      <button className="test__button" onClick={onAddLogClick}>
-        Add log
-      </button>
       <button className="test__button" onClick={onLogClick}>
         My travel log
       </button>
@@ -77,6 +73,7 @@ function App() {
         isOpen={activeModal === "travelLog"}
         onClose={closeActiveModal}
         title="Travel log"
+        item={selectedLog}
       />
       <Footer />
     </div>

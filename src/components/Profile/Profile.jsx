@@ -1,10 +1,21 @@
 import "./Profile.css";
 import LogsSection from "../LogsSection/LogsSection";
+import Sidebar from "../Sidebar/Sidebar";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
-function Profile() {
+function Profile({
+  onAddLogClick,
+  onLogClick
+}) {
   return (
     <div className="profile">
-      <LogsSection />
+      <Sidebar 
+        onAddLogClick={onAddLogClick}
+      />
+      <LogsSection
+        onCardClick={onLogClick}
+      />
+      <EditProfileModal />
     </div>
   );
 }
