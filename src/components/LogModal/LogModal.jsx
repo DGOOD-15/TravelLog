@@ -1,7 +1,6 @@
 import "./LogModal.css";
 import useModalClose from "../../hooks/useModalClose";
 import closeButton from "../../assets/closeButton.png";
-import placeholderImage from "../../assets/globewatercolor.jpg";
 
 function LogModal({ isOpen, onClose, title, item }) {
   useModalClose(isOpen, onClose);
@@ -28,7 +27,6 @@ function LogModal({ isOpen, onClose, title, item }) {
 }
 
 export default LogModal;
-
 
 // photo
 // description
