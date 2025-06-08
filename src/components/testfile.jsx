@@ -64,8 +64,7 @@ function App() {
       />
       <LoginModal isOpen={activeModal === "logIn"} onClose={closeActiveModal} />
       <AddLogModal
-        activeModal={activeModal === "travelLog"}
-        setActiveModal={setActiveModal}
+        isOpen={activeModal === "addLog"}
         onClose={closeActiveModal}
       />
       <LogModal
