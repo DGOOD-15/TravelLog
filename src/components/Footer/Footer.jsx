@@ -11,7 +11,7 @@ function Footer() {
         <div className="footer__text">
           <p className="footer__text-copyright">2025 &copy; MemoryMap</p>
           <p className="footer__text-authors">
-            Created by: Dustin Goodwin, Georgia Lloyd, Jaimie Bowen, Sky Mandić
+            Created by: Dustin Goodwin, Georgia Lloyd, Jaimie Bowen
           </p>
         </div>
         <img className="footer__logo" src={logo} alt="Memory Map Logo" />

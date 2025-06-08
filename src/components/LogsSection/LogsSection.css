@@ -1,0 +1,4 @@
+.logs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 413px);
+}

@@ -47,6 +47,11 @@
   padding: 0;
 }
 
+.log__close:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
 .log__title {
   padding-left: 20px;
 }

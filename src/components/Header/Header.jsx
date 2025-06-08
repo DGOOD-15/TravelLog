@@ -4,11 +4,7 @@ import logo from "../../assets/travellogo.png";
 import globe from "../../assets/globewatercolor.jpg";
 import avatar from "../../assets/avatarPlaceholder.jpg";
 
-function Header({
-  onSignUpClick,
-  onLoginClick,
-  onAddLogClick
-}) {
+function Header({ onSignUpClick, onLoginClick, onAddLogClick }) {
   return (
     <header className="header">
       <div className="header__container">
@@ -17,21 +13,30 @@ function Header({
         </Link>
         <img className="header__image" src={globe} alt="Globe Water Color" />
         <div className="header__profile-buttons-signedout">
-          <button onClick={onLoginClick} className="header__profile-buttons header__profile-buttons--login">
+          <button
+            onClick={onLoginClick}
+            className="header__profile-buttons header__profile-buttons--login"
+          >
             Login
           </button>
-          <button onClick={onSignUpClick} className="header__profile-buttons header__profile-buttons--signup">
+          <button
+            onClick={onSignUpClick}
+            className="header__profile-buttons header__profile-buttons--signup"
+          >
             Sign Up
           </button>
         </div>
 
         <div className="header__user-container">
           <div className="header__profile-buttons-signedin">
-            <button onClick={onAddLogClick} className="header__profile-buttons header__profile-buttons--addlog">
+            <button
+              onClick={onAddLogClick}
+              className="header__profile-buttons header__profile-buttons--addlog"
+            >
               My Travel Log
             </button>
             <button className="header__profile-buttons header__profile-buttons--signout">
-              Sign Out
+              Log Out
             </button>
           </div>
           <div className="header__user-details">
