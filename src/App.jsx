@@ -49,9 +49,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route
           path="/profile"
-          element={
-            <Profile onAddLogClick={onAddLogClick} onLogClick={onLogClick} />
-          }
+          element={<Profile onAddLogClick={onAddLogClick} onLogClick={onLogClick} />}
         />
       </Routes>
       {/* Following buttons for testing functionality only
@@ -66,7 +64,7 @@ function App() {
       />
       <LoginModal isOpen={activeModal === "logIn"} onClose={closeActiveModal} />
       <AddLogModal
-        activeModal={activeModal}
+        activeModal={activeModal === "addLog"}
         setActiveModal={setActiveModal}
         onClose={closeActiveModal}
       />
