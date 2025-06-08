@@ -6,7 +6,7 @@ function LogCard({ item, onCardClick }) {
   };
 
   return (
-    <div className="log__container">
+    <div className="profileLog__container">
       <img
         id={item._id}
         src={item.link}

@@ -1,0 +1,19 @@
+.profileLog__container {
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  border: solid;
+  font-size: 14px;
+  margin-bottom: 10px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.profileLog__container:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
