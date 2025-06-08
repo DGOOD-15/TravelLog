@@ -16,8 +16,8 @@ function EditProfileModal({ isOpen, onClose }) {
         Name
         <input
           type="text"
-          id="name"
-          name="name"
+          id="editName"
+          name="editName"
           placeholder="Name"
           className="modal__input"
           minLength="2"
@@ -28,8 +28,8 @@ function EditProfileModal({ isOpen, onClose }) {
         Email
         <input
           type="email"
-          id="signUpEmail"
-          name="signUpEmail"
+          id="editEmail"
+          name="editEmail"
           placeholder="Email address"
           className="modal__input"
           minLength="2"
@@ -40,8 +40,8 @@ function EditProfileModal({ isOpen, onClose }) {
         Password
         <input
           type="password"
-          id="signUpPassword"
-          name="signUpPassword"
+          id="editPassword"
+          name="editPassword"
           placeholder="Password"
           className="modal__input"
           minLength="2"
@@ -52,8 +52,8 @@ function EditProfileModal({ isOpen, onClose }) {
         Profile Picture
         <input
           type="url"
-          id="profilePic"
-          name="profilePic"
+          id="editProfilePic"
+          name="editProfilePic"
           placeholder="Image link"
           className="modal__input"
           minLength="2"
