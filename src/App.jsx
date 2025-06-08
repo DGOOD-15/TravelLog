@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-// g
+
 import "./App.css";
 import { authorize, checkToken } from "./utils/auth";
 import Header from "./components/Header/Header";

@@ -30,6 +30,7 @@ function Header({
             Login
           </button>
           <button
+            onClick={onSignUpClick}
             className={`header__profile-buttons header__profile-buttons--signup ${
               !isLoggedIn ? "header__profile-buttons-visible" : ""
             }
