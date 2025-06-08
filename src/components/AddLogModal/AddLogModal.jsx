@@ -1,6 +1,18 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./AddLogModal.css";
-function AddLogModal({ isOpen, onClose }) {
+function AddLogModal({ isOpen, onClose, onSubmit }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const description = form.description.value;
+    const photoUrl = form.photoUrl.value;
+    const location = form.location.value;
+
+    onSubmit({ description, photoUrl, location });
+    onClose();
+  };
+
   return (
     <ModalWithForm
       title="Add a memory"
@@ -9,7 +21,7 @@ function AddLogModal({ isOpen, onClose }) {
       loginText=""
       onClose={onClose}
       isOpen={isOpen}
-      // onSubmit={onSubmit}
+      onSubmit={handleSubmit}
     >
       <label className="modal__label">
         Description*

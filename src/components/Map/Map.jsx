@@ -1,13 +1,16 @@
-import { GoogleMap, useLoadScript } from "@react-google-maps/api";
+import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 import "./Map.css";
 import { useState } from "react";
+import AddLogModal from "../AddLogModal/AddLogModal";
 
 function Map() {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
   });
+  const [tempPin, setTempPin] = useState(null);
   const [pins, setPins] = useState([]);
   const [isAddingMemory, setIsAddingMemory] = useState(false);
+  const [isAddLogModalOpen, setAddLogModalOpen] = useState(false);
 
   if (loadError) return <div>Error loading maps</div>;
   if (!isLoaded) return <div>Loading Maps...</div>;
@@ -18,8 +21,29 @@ function Map() {
     const lat = e.latLng.lat();
     const lng = e.latLng.lng();
 
-    setMarkers((prev) => [...prev, { lat, lng }]);
+    setTempPin({ lat, lng });
     setIsAddingMemory(false);
+    setAddLogModalOpen(true);
+  };
+
+  const handleClose = () => {
+    setAddLogModalOpen(false);
+  };
+
+  const handleAddMemorySubmit = ({ description, photoUrl, location }) => {
+    if (!tempPin) return;
+
+    const newPin = {
+      lat: tempPin.lat,
+      lng: tempPin.lng,
+      description,
+      photoUrl,
+      location,
+    };
+
+    setPins((prev) => [...prev, newPin]);
+    setTempPin(null);
+    handleClose();
   };
 
   return (
@@ -31,7 +55,11 @@ function Map() {
             center={{ lat: 39.8283, lng: -98.5795 }}
             zoom={4}
             onClick={handleMapClick}
-          ></GoogleMap>
+          >
+            {pins.map((pin, index) => (
+              <Marker key={index} position={{ lat: pin.lat, lng: pin.lng }} />
+            ))}
+          </GoogleMap>
         </div>
         <button
           className="map__add-memory-btn"
@@ -40,6 +68,12 @@ function Map() {
           Add Memory
         </button>
       </div>
+      <AddLogModal
+        isOpen={isAddLogModalOpen}
+        onClose={handleClose}
+        title="Add a Memory"
+        onSubmit={handleAddMemorySubmit}
+      />
     </section>
   );
 }
