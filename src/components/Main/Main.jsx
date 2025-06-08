@@ -1,12 +1,12 @@
 import Map from "../Map/Map";
 import "./Main.css";
 
-function Main() {
+function Main(onClose) {
   return (
     <main className="main">
       {" "}
       <section className="main__map">
-        <Map />
+        <Map onClose={onClose} />
       </section>
     </main>
   );

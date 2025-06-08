@@ -40,7 +40,7 @@ function App() {
     <div className="page">
       <Header />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main onClose={closeActiveModal} />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
       {/* Following buttons for testing functionality only
@@ -64,7 +64,8 @@ function App() {
       />
       <LoginModal isOpen={activeModal === "logIn"} onClose={closeActiveModal} />
       <AddLogModal
-        isOpen={activeModal === "addLog"}
+        activeModal={activeModal}
+        setActiveModal={setActiveModal}
         onClose={closeActiveModal}
       />
       <LogModal
