@@ -40,8 +40,13 @@ function App() {
     <div className="page">
       <Header />
       <Routes>
-        <Route path="/" element={<Main onClose={closeActiveModal} />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/" element={<Main />} />
+        <Route
+          path="/profile"
+          element={
+            <Profile onAddLogClick={onAddLogClick} onLogClick={onLogClick} />
+          }
+        />
       </Routes>
       {/* Following buttons for testing functionality only
           Please remove when no longer needed */}
