@@ -2,6 +2,7 @@ import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 import "./Map.css";
 import { useState, useEffect } from "react";
 import AddLogModal from "../AddLogModal/AddLogModal";
+import LogModal from "../LogModal/LogModal";
 
 function Map() {
   const { isLoaded, loadError } = useLoadScript({
@@ -59,6 +60,17 @@ function Map() {
     handleClose();
   };
 
+  const handleDeletePin = (pinToDelete) => {
+    const updatedPins = pins.filter(
+      (pin) =>
+        pin.lat !== pinToDelete.lat ||
+        pin.lng !== pinToDelete.lng ||
+        pin.description !== pinToDelete.description // To uniquely identify
+    );
+    setPins(updatedPins);
+    setSelectedPin(null);
+  };
+
   return (
     <section className="map">
       <div className="map__polaroid-frame">
@@ -92,6 +104,14 @@ function Map() {
         onClose={handleClose}
         title="Add a Memory"
         onSubmit={handleAddMemorySubmit}
+      />
+
+      <LogModal
+        isOpen={!!selectedPin}
+        onClose={() => setSelectedPin(null)}
+        title="Memory Details"
+        item={selectedPin}
+        onDelete={() => handleDeletePin(selectedPin)}
       />
     </section>
   );

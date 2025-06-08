@@ -1,6 +1,14 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./AddLogModal.css";
-function AddLogModal({ isOpen, onClose, onSubmit }) {
+function AddLogModal({
+  isOpen,
+  onClose,
+  onSubmit,
+  title,
+  description = "",
+  photoUrl = "",
+  location = "",
+}) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -23,11 +31,11 @@ function AddLogModal({ isOpen, onClose, onSubmit }) {
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
-      <label className="modal__label">
+      <label className="modal__label" htmlFor="add-log-description">
         Description*
         <input
           type="text"
-          id="description"
+          id="add-log-description"
           name="description"
           placeholder="About this day..."
           className="modal__input"
@@ -36,11 +44,12 @@ function AddLogModal({ isOpen, onClose, onSubmit }) {
           required
         />
       </label>
-      <label className="modal__label">
+
+      <label className="modal__label" htmlFor="add-log-photoUrl">
         Photo URL
         <input
           type="url"
-          id="photoUrl"
+          id="add-log-photoUrl"
           name="photoUrl"
           placeholder="Image link"
           className="modal__input"
@@ -48,11 +57,12 @@ function AddLogModal({ isOpen, onClose, onSubmit }) {
           maxLength="50"
         />
       </label>
-      <label className="modal__label">
+
+      <label className="modal__label" htmlFor="add-log-location">
         Location*
         <input
           type="text"
-          id="location"
+          id="add-log-location"
           name="location"
           placeholder="Location"
           className="modal__input"
