@@ -3,7 +3,7 @@ import "./Header.css";
 import logo from "../../assets/travellogo.png";
 import globe from "../../assets/globewatercolor.jpg";
 import avatar from "../../assets/avatarPlaceholder.jpg";
-
+// georgia
 function Header({
   onSignUpClick,
   onLoginClick,
