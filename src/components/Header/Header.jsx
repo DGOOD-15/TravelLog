@@ -3,11 +3,12 @@ import "./Header.css";
 import logo from "../../assets/travellogo.png";
 import globe from "../../assets/globewatercolor.jpg";
 import avatar from "../../assets/avatarPlaceholder.jpg";
-// georgia
+
 function Header({
   onSignUpClick,
   onLoginClick,
   onAddLogClick,
+  onEditProfileClick,
   isLoggedIn,
   handleLogout,
 }) {
@@ -48,9 +49,18 @@ function Header({
                 }
               `}
               >
-                My Travel Log
+                Travel Log
               </button>
             </Link>
+            <button
+              className={`header__profile-buttons ${
+                isLoggedIn ? "header__profile-buttons-visible" : ""
+              }
+              `}
+              onClick={onEditProfileClick}
+            >
+              Edit profile
+            </button>
             <button
               className={`header__profile-buttons header__profile-buttons--signout ${
                 isLoggedIn ? "header__profile-buttons-visible" : ""

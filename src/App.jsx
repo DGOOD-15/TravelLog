@@ -93,6 +93,7 @@ function App() {
         onAddLogClick={onAddLogClick}
         handleLogout={handleLogout}
         isLoggedIn={isLoggedIn}
+        onEditProfileClick={onEditProfileClick}
       />
       <Routes>
         <Route path="/" element={<Main />} />
