@@ -4,7 +4,13 @@ import logo from "../../assets/travellogo.png";
 import globe from "../../assets/globewatercolor.jpg";
 import avatar from "../../assets/avatarPlaceholder.jpg";
 
-function Header({ onSignUpClick, onLoginClick, onAddLogClick }) {
+function Header({
+  onSignUpClick,
+  onLoginClick,
+  onAddLogClick,
+  isLoggedIn,
+  handleLogout,
+}) {
   return (
     <header className="header">
       <div className="header__container">
@@ -13,41 +19,66 @@ function Header({ onSignUpClick, onLoginClick, onAddLogClick }) {
         </Link>
         <img className="header__image" src={globe} alt="Globe Water Color" />
         <div className="header__profile-buttons-signedout">
-          <Link to="/" name="header__link">
-            <button
-              onClick={onLoginClick}
-              className="header__profile-buttons header__profile-buttons--login"
-            >
-              Login
-            </button>
-          </Link>
-          <Link to="/" name="signUp">
-            <button
-              onClick={onSignUpClick}
-              className="header__profile-buttons header__profile-buttons--signup"
-            >
-              Sign Up
-            </button>
-          </Link>
+          <button
+            onClick={onLoginClick}
+            className={`header__profile-buttons header__profile-buttons--login ${
+              !isLoggedIn ? "header__profile-buttons-visible" : ""
+            }
+              `}
+          >
+            Login
+          </button>
+          <button
+            className={`header__profile-buttons header__profile-buttons--signup ${
+              !isLoggedIn ? "header__profile-buttons-visible" : ""
+            }
+              `}
+          >
+            Sign Up
+          </button>
         </div>
 
         <div className="header__user-container">
           <div className="header__profile-buttons-signedin">
-            <Link to="/profile" className="header__link">
+            <Link to="/profile">
               <button
                 onClick={onAddLogClick}
-                className="header__profile-buttons header__profile-buttons--addlog"
+                className={`header__profile-buttons header__profile-buttons--addlog ${
+                  isLoggedIn ? "header__profile-buttons-visible" : ""
+                }
+              `}
               >
                 My Travel Log
               </button>
             </Link>
-            <button className="header__profile-buttons header__profile-buttons--signout">
-              Log Out
+            <button
+              className={`header__profile-buttons header__profile-buttons--signout ${
+                isLoggedIn ? "header__profile-buttons-visible" : ""
+              }
+              `}
+              onClick={handleLogout}
+            >
+              Sign Out
             </button>
           </div>
           <div className="header__user-details">
-            <img className="header__avatar" src={avatar} />
-            <p className="header__username">Josh Johnson</p>
+            <Link to="/profile">
+              <img
+                className={`header__avatar ${
+                  isLoggedIn ? "header__avatar-visible" : ""
+                }
+              `}
+                src={avatar}
+              />
+              <p
+                className={`header__username ${
+                  isLoggedIn ? "header__username-visible" : ""
+                }
+              `}
+              >
+                Josh Johnson
+              </p>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
+import { authorize, checkToken } from "./utils/auth";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Profile from "./components/Profile/Profile";
@@ -14,6 +15,7 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
+  const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedLog, setSelectedLog] = useState({});
 
@@ -42,12 +44,55 @@ function App() {
     setActiveModal("");
   };
 
+  const handleLoginSubmit = async ({ email, password }) => {
+    try {
+      const data = await authorize(email, password);
+      if (data.token) {
+        console.log("Submit started");
+        localStorage.setItem("jwt", data.token);
+        const userData = await checkToken(data.token);
+        if (userData.data) {
+          setCurrentUser(userData.data);
+          setIsLoggedIn(true);
+          closeActiveModal();
+        }
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+    }
+  };
+
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      checkToken(jwt)
+        .then((userData) => {
+          if (userData.data) {
+            setCurrentUser(userData.data);
+            setIsLoggedIn(true);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          localStorage.removeItem("jwt");
+        });
+    }
+  }, []);
+
+  const handleLogout = () => {
+    setCurrentUser(null);
+    setIsLoggedIn(false);
+    localStorage.removeItem("jwt");
+  };
+
   return (
     <div className="page">
       <Header
         onSignUpClick={onSignUpClick}
         onLoginClick={onLoginClick}
         onAddLogClick={onAddLogClick}
+        handleLogout={handleLogout}
+        isLoggedIn={isLoggedIn}
       />
       <Routes>
         <Route path="/" element={<Main />} />
@@ -58,6 +103,7 @@ function App() {
               onAddLogClick={onAddLogClick}
               onLogClick={onLogClick}
               onEditProfileClick={onEditProfileClick}
+              isLoggedIn={isLoggedIn}
             />
           }
         />
@@ -66,7 +112,12 @@ function App() {
         isOpen={activeModal === "signUp"}
         onClose={closeActiveModal}
       />
-      <LoginModal isOpen={activeModal === "logIn"} onClose={closeActiveModal} />
+      <LoginModal
+        isOpen={activeModal === "logIn"}
+        onClose={closeActiveModal}
+        isLoggedIn={isLoggedIn}
+        handleLoginSubmit={handleLoginSubmit}
+      />
       <AddLogModal
         activeModal={activeModal === "addLog"}
         setActiveModal={setActiveModal}
@@ -77,6 +128,7 @@ function App() {
         onClose={closeActiveModal}
         title="Travel log"
         item={selectedLog}
+        handleLoginSubmit={handleLoginSubmit}
       />
       <EditProfileModal
         isOpen={activeModal === "editProfile"}

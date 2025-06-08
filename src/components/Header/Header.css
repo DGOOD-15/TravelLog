@@ -41,6 +41,7 @@
 }
 
 .header__profile-buttons {
+  visibility: hidden;
   width: 80px;
   height: 30px;
   border-radius: 15px;
@@ -71,6 +72,10 @@
   gap: 5px;
 }
 
+.header__profile-buttons-visible {
+  visibility: visible;
+}
+
 .header__user-details {
   display: flex;
   flex-direction: column;
@@ -79,6 +84,7 @@
 }
 
 .header__avatar {
+  visibility: hidden;
   width: 65px;
   height: 65px;
   border-radius: 50px;
@@ -88,11 +94,20 @@
   object-position: 50% 10%;
 }
 
+.header__avatar-visible {
+  visibility: visible;
+}
+
 .header__username {
+  visibility: hidden;
   margin: 0px;
   padding: 0px;
   font-size: 15px;
   color: black;
+}
+
+.header__username-visible {
+  visibility: visible;
 }
 
 @media screen and (max-width: 630px) {
