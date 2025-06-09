@@ -1,7 +1,6 @@
 import "./LogModal.css";
 import useModalClose from "../../hooks/useModalClose";
 import { useEffect } from "react";
-import LogCard from "../LogCard/LogCard";
 
 function LogModal({ isOpen, onClose, title, item, onDelete, onEdit }) {
   useModalClose(isOpen, onClose);
