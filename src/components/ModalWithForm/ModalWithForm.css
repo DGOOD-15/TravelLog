@@ -88,6 +88,12 @@
   margin-left: 5px;
 }
 
+.modal__error {
+  color: #ff0000;
+  margin-top: 3px;
+  display: block;
+}
+
 @media screen and (max-width: 470px) {
   .modal__form {
     max-width: 300px;

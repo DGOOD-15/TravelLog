@@ -1,7 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function useModalClose(isOpen, onClose) {
-
   useEffect(() => {
     if (!isOpen) return;
 

@@ -1,7 +1,12 @@
 import "./SignUpModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useForm } from "../../hooks/useForm";
 
 function SignUpModal({ isOpen, onClose, handleRegistrationSubmit }) {
+  const { values, errors, handleChange } = useForm({
+    loginEmail: "",
+    loginPassword: "",
+  });
   const onSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -11,7 +16,7 @@ function SignUpModal({ isOpen, onClose, handleRegistrationSubmit }) {
       password: form.password.value,
       profilePic: form.profilePic.value,
     };
-    handleRegistrationSubmit(formData);
+    handleRegistrationSubmit(formData, values);
   };
   return (
     <ModalWithForm
@@ -47,7 +52,10 @@ function SignUpModal({ isOpen, onClose, handleRegistrationSubmit }) {
           minLength="2"
           maxLength="50"
           required
+          value={values.email}
+          onChange={handleChange}
         />
+        {errors.email && <span className="modal__error">{errors.email}</span>}
       </label>
       <label className="modal__label">
         Password*
