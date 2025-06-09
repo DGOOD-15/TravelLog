@@ -1,6 +1,5 @@
 import "./LogModal.css";
 import useModalClose from "../../hooks/useModalClose";
-import closeButton from "../../assets/closeButton.png";
 import { useEffect } from "react";
 import LogCard from "../LogCard/LogCard";
 
@@ -9,9 +8,8 @@ function LogModal({ isOpen, onClose, title, item, onDelete, onEdit }) {
 
   useEffect(() => {
     if (item?.photoUrl) {
-      console.log("Photo URL:", item.photoUrl);
     }
-  }, [item]);
+  }, [item?.id]);
 
   if (!item) return null;
 
@@ -47,4 +45,3 @@ function LogModal({ isOpen, onClose, title, item, onDelete, onEdit }) {
 }
 
 export default LogModal;
-S;

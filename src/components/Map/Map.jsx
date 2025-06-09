@@ -1,59 +1,44 @@
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 import "./Map.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 import AddLogModal from "../AddLogModal/AddLogModal";
 import LogModal from "../LogModal/LogModal";
 
-function Map({ isLoggedIn, pins, setPins }) {
+function Map({ isLoggedIn, pins, setPins, handleDeletePin }) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
   });
 
   const mapRef = useRef(null);
-
   const [tempPin, setTempPin] = useState(null);
   const [isAddingMemory, setIsAddingMemory] = useState(false);
   const [isAddLogModalOpen, setAddLogModalOpen] = useState(false);
   const [selectedPin, setSelectedPin] = useState(null);
-
-  // Store map center and zoom in state to control map initial view
   const [mapCenter, setMapCenter] = useState({ lat: 39.8283, lng: -98.5795 });
   const [mapZoom, setMapZoom] = useState(4);
 
-  // Load pins from localStorage on mount
-  useEffect(() => {
-    const storedPins = localStorage.getItem("pins");
-    if (storedPins) {
-      setPins(JSON.parse(storedPins));
-    }
+  const onMapLoad = useCallback((map) => {
+    mapRef.current = map;
   }, []);
 
-  // Save pins to localStorage whenever they change
-  useEffect(() => {
-    localStorage.setItem("pins", JSON.stringify(pins));
-  }, [pins]);
+  const handleMapClick = useCallback(
+    (e) => {
+      if (!isAddingMemory) return;
 
-  if (loadError) return <div>Error loading maps</div>;
-  if (!isLoaded) return <div>Loading Maps...</div>;
+      const lat = e.latLng.lat();
+      const lng = e.latLng.lng();
 
-  const onMapLoad = (map) => {
-    mapRef.current = map;
-  };
+      setTempPin({ lat, lng });
+      setIsAddingMemory(false);
+      setAddLogModalOpen(true);
+    },
+    [isAddingMemory]
+  );
 
-  const handleMapClick = (e) => {
-    if (!isAddingMemory) return;
-
-    const lat = e.latLng.lat();
-    const lng = e.latLng.lng();
-
-    setTempPin({ lat, lng });
-    setIsAddingMemory(false);
-    setAddLogModalOpen(true);
-  };
-
-  const handleClose = () => {
+  const handleCloseModal = useCallback(() => {
     setAddLogModalOpen(false);
-  };
+    setSelectedPin(null);
+  }, []);
 
   const handleAddMemorySubmit = ({ description, photoUrl, location }) => {
     if (!tempPin) return;
@@ -68,28 +53,36 @@ function Map({ isLoggedIn, pins, setPins }) {
 
     setPins((prev) => [...prev, newPin]);
     setTempPin(null);
-    handleClose();
+    setAddLogModalOpen(false);
   };
 
-  const handleDeletePin = (pinToDelete) => {
-    const updatedPins = pins.filter(
-      (pin) =>
-        pin.lat !== pinToDelete.lat ||
-        pin.lng !== pinToDelete.lng ||
-        pin.description !== pinToDelete.description
-    );
-    setPins(updatedPins);
+  const handleDeleteSelectedPin = () => {
+    if (selectedPin === null) return;
+
+    handleDeletePin(selectedPin); //
     setSelectedPin(null);
   };
 
-  // Update center and zoom state only when user stops moving/zooming the map
-  const onIdle = () => {
-    if (mapRef.current) {
-      const newCenter = mapRef.current.getCenter();
-      setMapCenter({ lat: newCenter.lat(), lng: newCenter.lng() });
-      setMapZoom(mapRef.current.getZoom());
+  const onIdle = useCallback(() => {
+    if (!mapRef.current) return;
+
+    const newCenter = mapRef.current.getCenter();
+    const newLat = newCenter.lat();
+    const newLng = newCenter.lng();
+    const newZoom = mapRef.current.getZoom();
+
+    if (
+      newLat !== mapCenter.lat ||
+      newLng !== mapCenter.lng ||
+      newZoom !== mapZoom
+    ) {
+      setMapCenter({ lat: newLat, lng: newLng });
+      setMapZoom(newZoom);
     }
-  };
+  }, [mapCenter, mapZoom]);
+
+  if (loadError) return <div>Error loading maps</div>;
+  if (!isLoaded) return <div>Loading Maps...</div>;
 
   return (
     <section className="map">
@@ -101,13 +94,13 @@ function Map({ isLoggedIn, pins, setPins }) {
             zoom={mapZoom}
             onLoad={onMapLoad}
             onClick={handleMapClick}
-            onIdle={onIdle} // update center & zoom after interaction ends
+            onIdle={onIdle}
           >
             {pins.map((pin, index) => (
               <Marker
                 key={index}
                 position={{ lat: pin.lat, lng: pin.lng }}
-                onClick={() => setSelectedPin(pin)}
+                onClick={() => setSelectedPin(index)}
               />
             ))}
           </GoogleMap>
@@ -121,29 +114,27 @@ function Map({ isLoggedIn, pins, setPins }) {
           >
             Add Memory
           </button>
-          {!isLoggedIn ? (
-            <div className="map__tooltip-text">
-              Must sign in to add memories
-            </div>
-          ) : (
-            <div className="map__tooltip-text">Click map to add a memory</div>
-          )}
+          <div className="map__tooltip-text">
+            {isLoggedIn
+              ? "Click map to add a memory"
+              : "Must sign in to add memories"}
+          </div>
         </div>
       </div>
 
       <AddLogModal
         isOpen={isAddLogModalOpen}
-        onClose={handleClose}
+        onClose={handleCloseModal}
         title="Add a Memory"
         onSubmit={handleAddMemorySubmit}
       />
 
       <LogModal
-        isOpen={!!selectedPin}
-        onClose={() => setSelectedPin(null)}
+        isOpen={selectedPin !== null}
+        onClose={handleCloseModal}
         title="Memory Details"
-        item={selectedPin}
-        onDelete={() => handleDeletePin(selectedPin)}
+        item={selectedPin !== null ? pins[selectedPin] : null}
+        onDelete={handleDeleteSelectedPin}
       />
     </section>
   );

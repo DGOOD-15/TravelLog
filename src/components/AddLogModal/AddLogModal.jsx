@@ -1,14 +1,6 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./AddLogModal.css";
-function AddLogModal({
-  isOpen,
-  onClose,
-  onSubmit,
-  title,
-  description = "",
-  photoUrl = "",
-  location = "",
-}) {
+function AddLogModal({ isOpen, onClose, onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 

@@ -24,9 +24,10 @@ function App() {
   });
 
   useEffect(() => {
-    localStorage.setItem("pins", JSON.stringify(pins));
+    if (pins.length > 0) {
+      localStorage.setItem("pins", JSON.stringify(pins));
+    }
   }, [pins]);
-
   const onSignUpClick = () => {
     setActiveModal("signUp");
   };
@@ -54,21 +55,13 @@ function App() {
 
   const handleRegistrationSubmit = async ({ email, password, name }) => {
     try {
-      console.log("Starting registration with:", { email, name });
       const userData = { name, email, password };
-      console.log("About to store userData:", userData);
-      localStorage.setItem("userData", JSON.stringify(userData));
-      console.log(
-        "Checking localStorage after setting:",
-        localStorage.getItem("userData")
-      );
 
+      localStorage.setItem("userData", JSON.stringify(userData));
       const data = await authorize(email, password);
-      console.log("Authorize response:", data);
       if (data.token) {
         localStorage.setItem("jwt", data.token);
         const userData = await checkToken(data.token);
-        console.log("CheckToken response:", userData);
         if (userData.data) {
           closeActiveModal();
           // setActiveModal("success");
@@ -83,7 +76,6 @@ function App() {
     try {
       const data = await authorize(email, password);
       if (data.token) {
-        console.log("Submit started");
         localStorage.setItem("jwt", data.token);
         const userData = await checkToken(data.token);
         if (userData.data) {
@@ -120,6 +112,10 @@ function App() {
     localStorage.removeItem("jwt");
   };
 
+  const handleDeletePin = (indexToDelete) => {
+    setPins((prevPins) => prevPins.filter((_, idx) => idx !== indexToDelete));
+  };
+
   return (
     <div className="page">
       <Header
@@ -137,6 +133,7 @@ function App() {
             <Main
               pins={pins}
               setPins={setPins}
+              handleDeletePin={handleDeletePin}
               isLoggedIn={isLoggedIn}
               currentUser={currentUser}
             />
@@ -147,6 +144,8 @@ function App() {
           element={
             <Profile
               pins={pins}
+              setPins={setPins}
+              handleDeletePin={handleDeletePin}
               onAddLogClick={onAddLogClick}
               onLogClick={onLogClick}
               onEditProfileClick={onEditProfileClick}

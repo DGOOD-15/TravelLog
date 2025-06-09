@@ -1,24 +1,21 @@
 import "./LogCard.css";
-import React from "react";
 
-const LogCard = React.memo(function LogCard({ item, onCardClick }) {
-  const handleCardClick = () => {
-    onCardClick(item);
-  };
-
-  console.log("Rendering LogCard with item:", item);
-
+function LogCard({ item, onCardClick }) {
   return (
-    <div className="profileLog__container">
-      <img
-        id={item._id}
-        src={item.photoUrl}
-        className="log__image"
-        alt={item.location}
-        onClick={handleCardClick}
-      />
+    <div className="log-card" onClick={onCardClick}>
+      {item.photoUrl && (
+        <img
+          src={item.photoUrl}
+          alt={item.location}
+          className="log-card__image"
+        />
+      )}
+      <div className="log-card__content">
+        <h3 className="log-card__location">{item.location}</h3>
+        <p className="log-card__description">{item.description}</p>
+      </div>
     </div>
   );
-});
+}
 
 export default LogCard;
