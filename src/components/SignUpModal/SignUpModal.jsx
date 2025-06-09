@@ -1,9 +1,7 @@
 import "./SignUpModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function SignUpModal({
-  isOpen, onClose, handleRegistrationSubmit
-}) {
+function SignUpModal({ isOpen, onClose, handleRegistrationSubmit }) {
   return (
     <ModalWithForm
       title="Create an account"
