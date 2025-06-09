@@ -1,9 +1,18 @@
 import "./SignUpModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function SignUpModal({
-  isOpen, onClose, handleRegistrationSubmit
-}) {
+function SignUpModal({ isOpen, onClose, handleRegistrationSubmit }) {
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = {
+      name: form.name.value,
+      email: form.email.value,
+      password: form.password.value,
+      profilePic: form.profilePic.value,
+    };
+    handleRegistrationSubmit(formData);
+  };
   return (
     <ModalWithForm
       title="Create an account"
@@ -12,7 +21,7 @@ function SignUpModal({
       loginText="or Log In"
       onClose={onClose}
       isOpen={isOpen}
-      onSubmit={handleRegistrationSubmit}
+      onSubmit={onSubmit}
     >
       <label className="modal__label">
         Name*
@@ -31,8 +40,8 @@ function SignUpModal({
         Email*
         <input
           type="email"
-          id="signUpEmail"
-          name="signUpEmail"
+          id="email"
+          name="email"
           placeholder="Email address"
           className="modal__input"
           minLength="2"
@@ -44,8 +53,8 @@ function SignUpModal({
         Password*
         <input
           type="password"
-          id="signUpPassword"
-          name="signUpPassword"
+          id="password"
+          name="password"
           placeholder="Password"
           className="modal__input"
           minLength="2"
@@ -62,7 +71,6 @@ function SignUpModal({
           placeholder="Image link"
           className="modal__input"
           minLength="2"
-          maxLength="50"
         />
       </label>
     </ModalWithForm>
