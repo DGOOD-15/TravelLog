@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LogCard from "../LogCard/LogCard";
 import LogModal from "../LogModal/LogModal";
+import "./LogsSection.css";
 
 function LogsSection({ logs = [], setLogs, handleDeletePin }) {
   const [selectedIndex, setSelectedIndex] = useState(null);

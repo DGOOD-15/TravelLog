@@ -47,34 +47,22 @@
   padding: 0;
 }
 
-.log__close:hover {
-  cursor: pointer;
-  opacity: 0.7;
-}
-
 .log__title {
   padding-left: 20px;
 }
 
-.log__image {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-.log__info-container {
-  padding: 0px 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.log__text {
-  font-size: 40px;
-  color: red;
+.log__location {
+  font-size: 20px;
+  margin: 10px 20px 5px;
 }
 
 .log__description {
-  padding: 0px 20px;
+  margin: 5px 20px 20px;
+}
+
+.log__close:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .log__actions {
@@ -86,12 +74,18 @@
   align-self: center;
   margin-bottom: 20px;
   width: 120px;
-  border-radius: 12px;
+  height: 30px;
+  border-radius: 15px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #4a7c8c;
+  border: none;
 }
 
 @media screen and (max-width: 470px) {
   .log__container {
     max-width: 350px;
+    margin: 0 10px;
   }
 }
 

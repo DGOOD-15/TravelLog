@@ -20,8 +20,13 @@ function LogModal({ isOpen, onClose, title, item, onDelete, onEdit }) {
 
         <button onClick={onClose} type="button" className="log__close"></button>
 
-        {/* Use LogCard for image */}
-        <LogCard item={item} onCardClick={() => {}} />
+        {item.photoUrl && (
+          <img
+            src={item.photoUrl}
+            alt={item.location}
+            className="log-card__image"
+          />
+        )}
 
         <div className="log__info-container">
           <p className="log__location">{item.location}</p>

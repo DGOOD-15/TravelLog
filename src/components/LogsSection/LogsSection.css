@@ -1,4 +1,4 @@
-.logs {
+.logs-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
   justify-content: center;
