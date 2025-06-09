@@ -2,15 +2,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   width: 100%;
   min-height: 1000px;
   margin: 0 auto;
   background-image: url(../../assets/main-background.png);
   background-size: cover;
   background-repeat: no-repeat;
+  box-sizing: border-box;
 }
 
 .main__map {
   height: 600px;
   width: 100%;
+}
+
+@media screen and (max-width: 680px) {
+  .main {
+    min-height: 500px;
+  }
 }
