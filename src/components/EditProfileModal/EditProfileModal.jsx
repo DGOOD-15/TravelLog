@@ -57,7 +57,6 @@ function EditProfileModal({ isOpen, onClose }) {
           placeholder="Image link"
           className="modal__input"
           minLength="2"
-          maxLength="50"
         />
       </label>
     </ModalWithForm>

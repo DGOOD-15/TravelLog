@@ -11,6 +11,7 @@ function Header({
   onEditProfileClick,
   isLoggedIn,
   handleLogout,
+  currentUser,
 }) {
   return (
     <header className="header">
@@ -77,17 +78,15 @@ function Header({
               <img
                 className={`header__avatar ${
                   isLoggedIn ? "header__avatar-visible" : ""
-                }
-              `}
-                src={avatar}
+                }`}
+                src={currentUser?.profilePic || avatar}
               />
               <p
                 className={`header__username ${
                   isLoggedIn ? "header__username-visible" : ""
-                }
-              `}
+                }`}
               >
-                Josh Johnson
+                {currentUser?.name || "Anonymous"}
               </p>
             </Link>
           </div>

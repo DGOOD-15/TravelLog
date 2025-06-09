@@ -18,16 +18,22 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedLog, setSelectedLog] = useState({});
-  const [pins, setPins] = useState(() => {
-    const savedPins = localStorage.getItem("pins");
-    return savedPins ? JSON.parse(savedPins) : [];
-  });
+  const [pins, setPins] = useState([]);
 
   useEffect(() => {
-    if (pins.length > 0) {
-      localStorage.setItem("pins", JSON.stringify(pins));
+    if (isLoggedIn && currentUser) {
+      const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+      const updatedUsers = storedUsers.map((user) =>
+        user.email === currentUser.email ? { ...user, pins } : user
+      );
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
+
+      // Update currentUser in memory too
+      const updatedUser = { ...currentUser, pins };
+      setCurrentUser(updatedUser);
     }
   }, [pins]);
+
   const onSignUpClick = () => {
     setActiveModal("signUp");
   };
@@ -53,18 +59,41 @@ function App() {
     setActiveModal("");
   };
 
-  const handleRegistrationSubmit = async ({ email, password, name }) => {
+  const handleRegistrationSubmit = async ({
+    name,
+    email,
+    password,
+    profilePic,
+  }) => {
     try {
-      const userData = { name, email, password };
+      const newUser = {
+        name,
+        email,
+        password,
+        profilePic: profilePic || "",
+        _id: crypto.randomUUID(),
+        pins: [],
+      };
 
-      localStorage.setItem("userData", JSON.stringify(userData));
+      const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+      const emailExists = existingUsers.some((user) => user.email === email);
+      if (emailExists) {
+        throw new Error("User with that email already exists.");
+      }
+
+      const updatedUsers = [...existingUsers, newUser];
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
+
       const data = await authorize(email, password);
       if (data.token) {
         localStorage.setItem("jwt", data.token);
-        const userData = await checkToken(data.token);
-        if (userData.data) {
+        const userDataFromToken = await checkToken(data.token);
+        if (userDataFromToken.data) {
+          setCurrentUser(userDataFromToken.data);
+          setPins(userDataFromToken.data.pins || []);
+          setIsLoggedIn(true);
           closeActiveModal();
-          // setActiveModal("success");
         }
       }
     } catch (error) {
@@ -72,7 +101,12 @@ function App() {
     }
   };
 
-  const handleLoginSubmit = async ({ email, password }) => {
+  const handleLoginSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.loginEmail.value.trim();
+    const password = form.loginPassword.value;
+
     try {
       const data = await authorize(email, password);
       if (data.token) {
@@ -80,12 +114,14 @@ function App() {
         const userData = await checkToken(data.token);
         if (userData.data) {
           setCurrentUser(userData.data);
+          setPins(userData.data.pins || []);
           setIsLoggedIn(true);
           closeActiveModal();
         }
       }
     } catch (error) {
-      console.error("Login error:", error);
+      console.error("Login error:", error.message);
+      alert("Login failed: " + error.message);
     }
   };
 
@@ -96,6 +132,7 @@ function App() {
         .then((userData) => {
           if (userData.data) {
             setCurrentUser(userData.data);
+            setPins(userData.data.pins || []); // ← Load user's pins
             setIsLoggedIn(true);
           }
         })
@@ -109,6 +146,7 @@ function App() {
   const handleLogout = () => {
     setCurrentUser(null);
     setIsLoggedIn(false);
+    setPins([]);
     localStorage.removeItem("jwt");
   };
 
@@ -125,6 +163,7 @@ function App() {
         handleLogout={handleLogout}
         isLoggedIn={isLoggedIn}
         onEditProfileClick={onEditProfileClick}
+        currentUser={currentUser}
       />
       <Routes>
         <Route
