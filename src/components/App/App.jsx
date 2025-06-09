@@ -2,22 +2,30 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import { authorize, checkToken } from "./utils/auth";
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import Profile from "./components/Profile/Profile";
-import LogModal from "./components/LogModal/LogModal";
-import SignUpModal from "./components/SignUpModal/SignUpModal";
-import LoginModal from "./components/LoginModal/LoginModal";
-import AddLogModal from "./components/AddLogModal/AddLogModal";
-import EditProfileModal from "./components/EditProfileModal/EditProfileModal";
-import Footer from "./components/Footer/Footer";
+import { authorize, checkToken } from "../../utils/auth";
+import Header from "../Header/Header";
+import Main from "../Main/Main";
+import Profile from "../Profile/Profile";
+import LogModal from "../LogModal/LogModal";
+import SignUpModal from "../SignUpModal/SignUpModal";
+import LoginModal from "../LoginModal/LoginModal";
+import AddLogModal from "../AddLogModal/AddLogModal";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
+import Footer from "../Footer/Footer";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedLog, setSelectedLog] = useState({});
+  const [pins, setPins] = useState(() => {
+    const savedPins = localStorage.getItem("pins");
+    return savedPins ? JSON.parse(savedPins) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("pins", JSON.stringify(pins));
+  }, [pins]);
 
   const onSignUpClick = () => {
     setActiveModal("signUp");
@@ -123,11 +131,22 @@ function App() {
         onEditProfileClick={onEditProfileClick}
       />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route
+          path="/"
+          element={
+            <Main
+              pins={pins}
+              setPins={setPins}
+              isLoggedIn={isLoggedIn}
+              currentUser={currentUser}
+            />
+          }
+        />
         <Route
           path="/profile"
           element={
             <Profile
+              pins={pins}
               onAddLogClick={onAddLogClick}
               onLogClick={onLogClick}
               onEditProfileClick={onEditProfileClick}
