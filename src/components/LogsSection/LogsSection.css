@@ -1,0 +1,8 @@
+.logs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  justify-content: center;
+  gap: 40px 20px;
+  margin: 0;
+  padding: 20px;
+}

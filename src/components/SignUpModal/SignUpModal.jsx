@@ -2,7 +2,7 @@ import "./SignUpModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function SignUpModal({
-  isOpen, onClose
+  isOpen, onClose, handleRegistrationSubmit
 }) {
   return (
     <ModalWithForm
@@ -12,7 +12,7 @@ function SignUpModal({
       loginText="or Log In"
       onClose={onClose}
       isOpen={isOpen}
-      // onSubmit={onSubmit}
+      onSubmit={handleRegistrationSubmit}
     >
       <label className="modal__label">
         Name*

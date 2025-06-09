@@ -1,16 +1,12 @@
 import "./LogCard.css";
-import placeholderImage from "../../assets/globewatercolor.jpg";
 
-function LogCard({
-  item,
-  onCardClick
-}) {
+function LogCard({ item, onCardClick }) {
   const handleCardClick = () => {
     onCardClick(item);
-  }
+  };
 
   return (
-    <div className="log__container">
+    <div className="profileLog__container">
       <img
         id={item._id}
         src={item.link}
