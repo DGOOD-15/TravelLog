@@ -40,3 +40,36 @@
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 12px 20px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
 }
+
+.map__tooltip-container {
+  position: relative;
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  align-items: center;
+  flex-direction: column;
+}
+
+.map__tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  text-align: center;
+  width: max-content;
+
+  position: absolute;
+  bottom: 110%; /* Show above the button */
+  left: 50%;
+  transform: translateX(-50%);
+
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.map__tooltip-container:hover .map__tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

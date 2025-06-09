@@ -77,6 +77,18 @@
   padding: 0px 20px;
 }
 
+.log__actions {
+  display: flex;
+  justify-content: center;
+}
+
+.log__delete-btn {
+  align-self: center;
+  margin-bottom: 20px;
+  width: 120px;
+  border-radius: 12px;
+}
+
 @media screen and (max-width: 470px) {
   .log__container {
     max-width: 350px;
