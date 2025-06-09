@@ -1,12 +1,14 @@
 import "./Profile.css";
 import LogsSection from "../LogsSection/LogsSection";
-import EditProfileModal from "../EditProfileModal/EditProfileModal";
-// working modals
-function Profile({ onLogClick, onEditProfileClick, pins }) {
+
+function Profile({ pins, setPins, handleDeletePin }) {
   return (
     <div className="profile">
-      <LogsSection onCardClick={onLogClick} pins={pins} />
-      <EditProfileModal />
+      <LogsSection
+        logs={pins}
+        setLogs={setPins}
+        handleDeletePin={handleDeletePin}
+      />
     </div>
   );
 }

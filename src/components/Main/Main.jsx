@@ -1,7 +1,7 @@
 import Map from "../Map/Map";
 import "./Main.css";
 
-function Main({ onClose, isLoggedIn, currentUser, pins, setPins }) {
+function Main({ onClose, isLoggedIn, pins, setPins, handleDeletePin }) {
   return (
     <main className="main">
       {" "}
@@ -11,6 +11,7 @@ function Main({ onClose, isLoggedIn, currentUser, pins, setPins }) {
           isLoggedIn={isLoggedIn}
           pins={pins}
           setPins={setPins}
+          handleDeletePin={handleDeletePin}
         />
       </section>
     </main>
