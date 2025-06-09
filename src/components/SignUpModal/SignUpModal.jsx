@@ -2,6 +2,7 @@ import "./SignUpModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function SignUpModal({ isOpen, onClose, handleRegistrationSubmit }) {
+<<<<<<< HEAD
   const onSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,6 +14,8 @@ function SignUpModal({ isOpen, onClose, handleRegistrationSubmit }) {
     };
     handleRegistrationSubmit(formData);
   };
+=======
+>>>>>>> formValidation
   return (
     <ModalWithForm
       title="Create an account"
