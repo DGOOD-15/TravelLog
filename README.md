@@ -1,12 +1,53 @@
-# React + Vite
+# 🗺️ MemoryMap - Travel Log App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📖 Overview
+Travel Log is a vibrant, user-friendly web application crafted during a TripleTen Code Jam, designed to let travelers document their adventures with ease and style. Users can drop pins on an interactive map to mark memorable locations, attach photos, and add captions to create a personal travel log. With a seamless profile page, users can revisit their cherished memories, edit their profile, and manage their travel logs—all wrapped in an intuitive and visually appealing interface. Built by a team of three students at different stages of their software engineering journey, Travel Log showcases collaborative development, leveraging each team member’s skills to create a cohesive and functional app.
 
-Currently, two official plugins are available:
+### 🎯 Purpose
+This project was developed as part of the TripleTen software engineering bootcamp, where team members Dustin Goodwin, Georgia Lloyd, and Jaimie Bowen combined their efforts to build a meaningful application. By assigning tasks based on each student’s current level of expertise, the team efficiently tackled front-end development, state management, and UI design, resulting in a polished product despite ongoing minor adjustments.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
+### 🗺️ Interactive Map
+    Drop pins on a Google Map to mark special locations.
+### 📸 Travel Logs
+    Add photos and captions to create rich memory entries.
+### 👤 User Profiles
+    View and manage all travel logs in a personalized profile page.
+### 🔐 Secure Authentication
+    Secure sign-up and login system with local storage for user data.
+### 📱 Responsive Design
+    Optimized for both desktop and mobile devices.
+### 🖼️ Intuitive Modals
+    Intuitive modal forms for adding logs, signing up, logging in, and editing profiles.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
+|      **Technology**     | **Purpose** |   **Key Feature**  |
+|-------------------------|-------------|--------------------|
+| 📝 **React**           | UI          | Dynamic components |
+| ⚡ **Vite**            | Build Tool  | Fast dev server    |
+| 🗺️ **Google Maps API** | Map         | Pin placement      |
+| 🎨 **CSS**             | Styling     | Responsive design  |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 📦 Installation & Setup
+1. Clone the Repository:
+    bash
+    git clone <repository-url> && cd memory-map
+
+2. Install Dependencies:
+    npm install
+
+3. Set Up Environment Variables:
+    Create a .env file in the root directory and add your Google Maps API key:
+    env
+    VITE_GOOGLE_MAPS_API_KEY=your-api-key
+
+4. Run the Development Server:
+    npm run dev
+
+5. Open the App:
+    Navigate to http://localhost:5173 (or the port specified by Vite) in your browser.
+
+## 👥 Contributors
+- **Dustin Goodwin** 🌍: Map integration, state management
+- **Jaimie Bowen** 🎨: UI design, responsive CSS styling
+- **Georgia Lloyd** 🔐: Authentication, modal logic

@@ -1,4 +1,3 @@
-import "./EditProfileModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import useModalClose from "../../hooks/useModalClose";
 
