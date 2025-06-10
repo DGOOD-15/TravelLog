@@ -8,14 +8,13 @@ export function useForm(initialValues = {}) {
     return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email);
   };
 
-  // Run validation whenever email changes
   useEffect(() => {
-    if (values.loginEmail && !validateEmail(values.loginEmail)) {
+    if (values.email && !validateEmail(values.email)) {
       setErrors((prev) => ({ ...prev, email: "Invalid email address" }));
     } else {
       setErrors((prev) => ({ ...prev, email: "" }));
     }
-  }, [values.loginEmail]);
+  }, [values.email]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

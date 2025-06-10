@@ -59,7 +59,7 @@ function Map({ isLoggedIn, pins, setPins, handleDeletePin }) {
   const handleDeleteSelectedPin = () => {
     if (selectedPin === null) return;
 
-    handleDeletePin(selectedPin); //
+    handleDeletePin(selectedPin);
     setSelectedPin(null);
   };
 

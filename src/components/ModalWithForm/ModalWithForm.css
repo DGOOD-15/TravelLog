@@ -59,6 +59,7 @@
 
 .modal__submit-container {
   display: flex;
+  gap: 5px;
 }
 
 .modal__submit {
@@ -72,6 +73,20 @@
 }
 
 .modal__submit:hover {
+  opacity: 0.7;
+}
+
+.modal__second-btn {
+  color: #fff;
+  background-color: #4a7c8c;
+  margin: 10px 5px 20px 0;
+  border: none;
+  border-radius: 5px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.modal__second-btn:hover {
   opacity: 0.7;
 }
 

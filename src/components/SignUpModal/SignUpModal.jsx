@@ -1,10 +1,15 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 
-function SignUpModal({ isOpen, onClose, handleRegistrationSubmit }) {
+function SignUpModal({
+  isOpen,
+  onClose,
+  handleRegistrationSubmit,
+  handleLoginLinkClick,
+}) {
   const { values, errors, handleChange } = useForm({
-    loginEmail: "",
-    loginPassword: "",
+    email: "",
+    password: "",
   });
   const onSubmit = (e) => {
     e.preventDefault();
@@ -26,12 +31,12 @@ function SignUpModal({ isOpen, onClose, handleRegistrationSubmit }) {
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={onSubmit}
+      onAltActionClick={handleLoginLinkClick}
     >
       <label className="modal__label">
         Name*
         <input
           type="text"
-          id="name"
           name="name"
           placeholder="Name"
           className="modal__input"
@@ -44,7 +49,6 @@ function SignUpModal({ isOpen, onClose, handleRegistrationSubmit }) {
         Email*
         <input
           type="email"
-          id="email"
           name="email"
           placeholder="Email address"
           className="modal__input"
@@ -60,7 +64,6 @@ function SignUpModal({ isOpen, onClose, handleRegistrationSubmit }) {
         Password*
         <input
           type="password"
-          id="password"
           name="password"
           placeholder="Password"
           className="modal__input"

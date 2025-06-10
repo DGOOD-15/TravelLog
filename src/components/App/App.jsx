@@ -28,7 +28,6 @@ function App() {
       );
       localStorage.setItem("users", JSON.stringify(updatedUsers));
 
-      // Update currentUser in memory too
       const updatedUser = { ...currentUser, pins };
       setCurrentUser(updatedUser);
     }
@@ -57,6 +56,16 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
+  };
+
+  const handleLoginLinkClick = () => {
+    closeActiveModal();
+    setActiveModal("logIn");
+  };
+
+  const handleSignUpLinkClick = () => {
+    closeActiveModal();
+    setActiveModal("signUp");
   };
 
   const handleRegistrationSubmit = async ({
@@ -103,8 +112,8 @@ function App() {
 
   const handleLoginSubmit = async () => {
     const form = event.target;
-    const email = form.loginEmail.value.trim();
-    const password = form.loginPassword.value;
+    const email = form.email.value.trim();
+    const password = form.password.value;
 
     try {
       const data = await authorize(email, password);
@@ -131,7 +140,7 @@ function App() {
         .then((userData) => {
           if (userData.data) {
             setCurrentUser(userData.data);
-            setPins(userData.data.pins || []); // ← Load user's pins
+            setPins(userData.data.pins || []);
             setIsLoggedIn(true);
           }
         })
@@ -196,12 +205,14 @@ function App() {
         isOpen={activeModal === "signUp"}
         onClose={closeActiveModal}
         handleRegistrationSubmit={handleRegistrationSubmit}
+        handleLoginLinkClick={handleLoginLinkClick}
       />
       <LoginModal
         isOpen={activeModal === "logIn"}
         onClose={closeActiveModal}
         isLoggedIn={isLoggedIn}
         handleLoginSubmit={handleLoginSubmit}
+        handleSignUpLinkClick={handleSignUpLinkClick}
       />
       <AddLogModal
         activeModal={activeModal === "addLog"}
@@ -219,6 +230,8 @@ function App() {
         isOpen={activeModal === "editProfile"}
         onClose={closeActiveModal}
         title="Edit profile"
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
       />
       <Footer />
     </div>
