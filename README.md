@@ -1,4 +1,4 @@
-# 🗺️ MemoryMap - Travel Log App
+# 🗺️ Travel Log App
 
 ## 📖 Overview
 Travel Log is a vibrant, user-friendly web application crafted during a TripleTen Code Jam, designed to let travelers document their adventures with ease and style. Users can drop pins on an interactive map to mark memorable locations, attach photos, and add captions to create a personal travel log. With a seamless profile page, users can revisit their cherished memories, edit their profile, and manage their travel logs—all wrapped in an intuitive and visually appealing interface. Built by a team of three students at different stages of their software engineering journey, Travel Log showcases collaborative development, leveraging each team member’s skills to create a cohesive and functional app.
