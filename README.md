@@ -31,7 +31,7 @@ This project was developed as part of the TripleTen software engineering bootcam
 ### 📦 Installation & Setup
 1. Clone the Repository:
     bash
-    git clone <repository-url> && cd memory-map
+    git clone [<repository-url>](https://github.com/DGOOD-15/MemoryMap.git) && cd memory-map
 
 2. Install Dependencies:
     npm install
