@@ -13,6 +13,7 @@ body,
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 .test__button {
