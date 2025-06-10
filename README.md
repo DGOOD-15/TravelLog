@@ -1,10 +1,10 @@
 # 🗺️ Travel Log App
 
 ## 📖 Overview
-Travel Log is a vibrant, user-friendly web application crafted during a TripleTen Code Jam, designed to let travelers document their adventures with ease and style. Users can drop pins on an interactive map to mark memorable locations, attach photos, and add captions to create a personal travel log. With a seamless profile page, users can revisit their cherished memories, edit their profile, and manage their travel logs—all wrapped in an intuitive and visually appealing interface. Built by a team of three students at different stages of their software engineering journey, Travel Log showcases collaborative development, leveraging each team member’s skills to create a cohesive and functional app.
+Travel Log is a vibrant, user-friendly web application designed to let travelers document their adventures with ease and style. Users can drop pins on an interactive map to mark memorable locations, attach photos, and add captions to create a personal travel log. With a seamless profile page, users can revisit their cherished memories, edit their profile, and manage their travel logs—all wrapped in an intuitive and visually appealing interface. Built by a team of three students at different stages of their software engineering journey, Travel Log showcases collaborative development, leveraging each team member’s skills to create a cohesive and functional app.
 
 ### 🎯 Purpose
-This project was developed as part of the TripleTen software engineering bootcamp, where team members Dustin Goodwin, Georgia Lloyd, and Jaimie Bowen combined their efforts to build a meaningful application. By assigning tasks based on each student’s current level of expertise, the team efficiently tackled front-end development, state management, and UI design, resulting in a polished product despite ongoing minor adjustments.
+This project was developed as part of the TripleTen software engineering bootcamp, where team members Dustin Goodwin, Georgia Lloyd, and Jaimie Bowen combined their efforts to build a meaningful application.
 
 ## ✨ Features
 ### 🗺️ Interactive Map
