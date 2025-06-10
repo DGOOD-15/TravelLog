@@ -101,8 +101,7 @@ function App() {
     }
   };
 
-  const handleLoginSubmit = async (event) => {
-    event.preventDefault();
+  const handleLoginSubmit = async () => {
     const form = event.target;
     const email = form.loginEmail.value.trim();
     const password = form.loginPassword.value;
