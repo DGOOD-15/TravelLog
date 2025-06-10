@@ -1,11 +1,15 @@
-import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 
-function LoginModal({ isOpen, onClose, handleLoginSubmit }) {
+function LoginModal({
+  isOpen,
+  onClose,
+  handleLoginSubmit,
+  handleSignUpLinkClick,
+}) {
   const { values, errors, handleChange } = useForm({
-    loginEmail: "",
-    loginPassword: "",
+    email: "",
+    password: "",
   });
 
   const onSubmit = (e) => {
@@ -18,17 +22,17 @@ function LoginModal({ isOpen, onClose, handleLoginSubmit }) {
       title="Log In"
       name="logIn"
       buttonText="Log In"
-      loginText="or Sign Up"
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={onSubmit}
+      onAltActionClick={handleSignUpLinkClick}
+      loginText="or Sign up"
     >
       <label className="modal__label">
         Email*
         <input
           type="email"
-          id="loginEmail"
-          name="loginEmail"
+          name="email"
           placeholder="Email address"
           className="modal__input"
           minLength="2"
@@ -43,8 +47,7 @@ function LoginModal({ isOpen, onClose, handleLoginSubmit }) {
         Password*
         <input
           type="password"
-          id="loginPassword"
-          name="loginPassword"
+          name="password"
           placeholder="Password"
           className="modal__input"
           minLength="2"

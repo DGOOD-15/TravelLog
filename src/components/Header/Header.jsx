@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/travellogo.png";
 import globe from "../../assets/globewatercolor.jpg";
@@ -13,6 +13,9 @@ function Header({
   handleLogout,
   currentUser,
 }) {
+  const location = useLocation();
+  const isProfilePage = location.pathname === "/profile";
+
   return (
     <header className="header">
       <div className="header__container">
@@ -43,26 +46,30 @@ function Header({
 
         <div className="header__user-container">
           <div className="header__profile-buttons-signedin">
-            <Link to="/profile">
+            {!isProfilePage && (
+              <Link to="/profile">
+                <button
+                  onClick={onAddLogClick}
+                  className={`header__profile-buttons header__profile-buttons--addlog ${
+                    isLoggedIn ? "header__profile-buttons-visible" : ""
+                  }
+              `}
+                >
+                  Travel Log
+                </button>
+              </Link>
+            )}
+            {isProfilePage && (
               <button
-                onClick={onAddLogClick}
-                className={`header__profile-buttons header__profile-buttons--addlog ${
+                className={`header__profile-buttons ${
                   isLoggedIn ? "header__profile-buttons-visible" : ""
                 }
               `}
+                onClick={onEditProfileClick}
               >
-                Travel Log
+                Edit profile
               </button>
-            </Link>
-            <button
-              className={`header__profile-buttons ${
-                isLoggedIn ? "header__profile-buttons-visible" : ""
-              }
-              `}
-              onClick={onEditProfileClick}
-            >
-              Edit profile
-            </button>
+            )}
             <button
               className={`header__profile-buttons header__profile-buttons--signout ${
                 isLoggedIn ? "header__profile-buttons-visible" : ""

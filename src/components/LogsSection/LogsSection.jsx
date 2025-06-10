@@ -3,7 +3,7 @@ import LogCard from "../LogCard/LogCard";
 import LogModal from "../LogModal/LogModal";
 import "./LogsSection.css";
 
-function LogsSection({ logs = [], setLogs, handleDeletePin }) {
+function LogsSection({ logs = [], handleDeletePin }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -19,7 +19,7 @@ function LogsSection({ logs = [], setLogs, handleDeletePin }) {
 
   const handleDeleteLog = () => {
     if (selectedIndex !== null) {
-      handleDeletePin(selectedIndex); // This calls App’s central delete logic
+      handleDeletePin(selectedIndex);
       handleCloseModal();
     }
   };

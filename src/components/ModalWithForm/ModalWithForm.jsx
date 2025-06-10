@@ -9,6 +9,7 @@ function ModalWithForm({
   onClose,
   isOpen,
   onSubmit,
+  onAltActionClick,
   loginText,
 }) {
   useModalClose(isOpen, onClose);
@@ -28,7 +29,15 @@ function ModalWithForm({
           <button type="submit" className="modal__submit">
             {buttonText}
           </button>
-          <p className="modal__login">{loginText}</p>
+          {onAltActionClick && (
+            <button
+              onClick={onAltActionClick}
+              className="modal__second-btn"
+              type="button"
+            >
+              {loginText}
+            </button>
+          )}
         </div>
       </form>
     </div>
