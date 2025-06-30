@@ -19,10 +19,19 @@
 }
 
 .log-card__content {
-  padding: 0px 20px;
+  padding: 0px 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.log-card__location {
+  margin-top: 5px;
+}
+
+.log-card__description {
+  margin: auto;
+  margin-bottom: 10px;
 }
 
 .log-card__image {
