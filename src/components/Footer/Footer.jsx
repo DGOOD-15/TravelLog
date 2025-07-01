@@ -1,5 +1,5 @@
 import "./Footer.css";
-import logo from "../../assets/travellogo.png";
+import logo from "../../assets/travellogo.webp";
 
 function Footer() {
   return (

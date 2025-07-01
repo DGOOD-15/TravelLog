@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
-import logo from "../../assets/travellogo.png";
-import globe from "../../assets/globewatercolor.jpg";
-import avatar from "../../assets/avatarPlaceholder.jpg";
+import logo from "../../assets/travellogo.webp";
+import globe from "../../assets/globewatercolor.webp";
+import avatar from "../../assets/avatarPlaceholder.webp";
 
 function Header({
   onSignUpClick,
